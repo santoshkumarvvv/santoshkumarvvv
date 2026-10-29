@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="160" viewBox="0 0 640 160" role="img" aria-label="Santosh logo">
+  <rect width="640" height="160" rx="16" fill="#0D1117"/>
+  <rect x="1.5" y="1.5" width="637" height="157" rx="14.5" fill="none" stroke="#58A6FF" stroke-opacity="0.35"/>
+  <g transform="translate(28,28)">
+    <polygon points="52,0 98,26 98,78 52,104 6,78 6,26" fill="none" stroke="#58A6FF" stroke-width="3"/>
+    <polygon points="52,14 84,32 84,72 52,90 20,72 20,32" fill="#111827" stroke="#FF6B6B" stroke-width="1.5"/>
+    <text x="52" y="66" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="28" font-weight="700" fill="#E6EDF3">SK</text>
+  </g>
+  <text x="168" y="78" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="42" font-weight="700" fill="#E6EDF3" letter-spacing="6">SANTOSH</text>
+  <text x="170" y="112" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" fill="#58A6FF" letter-spacing="3">MOBILE  ·  SYSTEMS  ·  PRODUCTION</text>
+</svg>
