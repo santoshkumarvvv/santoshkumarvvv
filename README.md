@@ -1,64 +1,50 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/santoshkumarvvv/santoshkumarvvv/main/assets/logo.svg" alt="Santosh — SK" width="640" />
+```
+root@github:~$ whoami
+santosh  ·  app developer  ·  typescript
+```
+
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&duration=2800&pause=900&color=39FF14&center=true&vCenter=true&width=900&lines=SANTOSH;building+apps+and+shipping+them;TypeScript+%C2%B7+Dart+%C2%B7+GitHub+Actions" alt="terminal bio" />
 
 <br/>
 
-**Mobile & systems engineer.** I design apps that stay fast after the demo.
+<img src="https://img.shields.io/badge/status-shipping-39FF14?style=flat-square&labelColor=0D1117"/>
+<img src="https://img.shields.io/badge/focus-apps-00E5FF?style=flat-square&labelColor=0D1117"/>
+<img src="https://img.shields.io/badge/stack-TypeScript%20%7C%20Dart-white?style=flat-square&labelColor=0D1117"/>
 
-[![Flutter](https://img.shields.io/badge/Flutter-02569B?style=flat-square&logo=flutter&logoColor=white)](https://flutter.dev)
-[![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF?style=flat-square&logo=kotlin&logoColor=white)](https://kotlinlang.org)
-[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
-[![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white)](https://nextjs.org)
-[![GitHub Actions](https://img.shields.io/badge/CI%2FCD-2088FF?style=flat-square&logo=githubactions&logoColor=white)](https://github.com/features/actions)
+<p>
+  <a href="https://github.com/santoshkumarvvv?tab=repositories"><img src="https://img.shields.io/badge/Repos-181717?style=for-the-badge&logo=github&logoColor=39FF14"/></a>
+  <a href="https://github.com/santoshkumarvvv/search-hub-"><img src="https://img.shields.io/badge/search--hub-0D1117?style=for-the-badge&logo=vercel&logoColor=39FF14"/></a>
+</p>
 
 </div>
 
----
-
-### `> whoami`
-
-```text
-name     Santosh
-role     App developer · clean architecture · shipping
-focus    Flutter / Dart · Kotlin / Android · Next.js / TypeScript
-bar      readable code, tested paths, production defaults
-```
-
-### `> operating principles`
-
-```diff
-+ Architecture before features.
-+ Measure before you optimize. Then actually optimize.
-+ If it is not tested, it is a rumor.
-+ CI is part of the product, not a sticker.
-+ Delete more than you add.
-```
-
-### `> selected systems`
-
-| System | What it is | Signal |
-| --- | --- | --- |
-| [search-hub-](https://github.com/santoshkumarvvv/search-hub-) | Catalog search product. Server-rendered Next.js, typed APIs, dark UI. | TypeScript · Next.js 15 |
-| [dev-showcase](https://github.com/santoshkumarvvv/dev-showcase) | Flutter starter with real layers, tests, and Actions. | Dart · Riverpod · CI |
-
-### `> signal`
+## `$ uptime`
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=santoshkumarvvv&show_icons=true&theme=radical&hide_border=true&bg_color=0D1117&title_color=58A6FF&icon_color=58A6FF&text_color=C9D1D9&count_private=true&hide_rank=false" height="150" alt="GitHub stats" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=santoshkumarvvv&layout=compact&theme=radical&hide_border=true&bg_color=0D1117&title_color=58A6FF&text_color=C9D1D9&langs_count=6" height="150" alt="Top languages" />
+
+<img height="165" src="https://github-readme-stats.vercel.app/api?username=santoshkumarvvv&show_icons=true&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=39FF14&icon_color=00E5FF&text_color=C9D1D9&include_all_commits=true"/>
+<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=santoshkumarvvv&layout=compact&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=39FF14&text_color=C9D1D9"/>
+
+<img src="https://streak-stats.demolab.com?user=santoshkumarvvv&theme=github-dark-blue&hide_border=true&background=0D1117&ring=39FF14&fire=39FF14&currStreakLabel=39FF14&sideLabels=C9D1D9&dates=8B949E"/>
+
 </div>
 
+## `$ ps aux --repos`
+
+| Repo | What it is |
+|---|---|
+| [search-hub-](https://github.com/santoshkumarvvv/search-hub-) | TypeScript app, public |
+| [dev-showcase](https://github.com/santoshkumarvvv/dev-showcase) | App showcase |
+| [search-hub-app](https://github.com/santoshkumarvvv/search-hub-app) | Private app, Vercel |
+
+## `$ tail -f activity`
+
+<!-- START:activity -->
+_Daily refresh from `.github/workflows/update-readme.yml`._
+<!-- END:activity -->
+
 <div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=santoshkumarvvv&theme=radical&hide_border=true&background=0D1117&stroke=58A6FF&ring=58A6FF&fire=FF6B6B&currStreakLabel=58A6FF" alt="Streak" />
-</div>
-
----
-
-<div align="center">
-
-`root@santosh:~#` open to serious builds
-
-[![Profile](https://img.shields.io/badge/github-santoshkumarvvv-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/santoshkumarvvv)
-
+<img src="https://komarev.com/ghpvc/?username=santoshkumarvvv&style=flat-square&color=39FF14&label=sessions" alt="profile views"/>
 </div>

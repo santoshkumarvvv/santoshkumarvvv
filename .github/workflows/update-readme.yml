@@ -1,0 +1,55 @@
+name: update-readme
+
+on:
+  schedule:
+    - cron: "17 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Refresh activity block
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          USER="${GITHUB_REPOSITORY_OWNER}"
+          {
+            echo "<!-- START:activity -->"
+            echo '```'
+            gh api "users/${USER}/events/public?per_page=8" \
+              --jq '.[] | "\(.created_at[0:16])  \(.type)  \(.repo.name)"'
+            echo '```'
+            echo "<!-- END:activity -->"
+          } > /tmp/activity.md
+
+          python3 - << 'PY'
+          from pathlib import Path
+          readme = Path("README.md")
+          text = readme.read_text()
+          block = Path("/tmp/activity.md").read_text().strip() + "\n"
+          start, end = "<!-- START:activity -->", "<!-- END:activity -->"
+          if start not in text or end not in text:
+              raise SystemExit("activity markers missing in README.md")
+          pre, rest = text.split(start, 1)
+          _, post = rest.split(end, 1)
+          readme.write_text(pre + block + post)
+          PY
+
+      - name: Commit if changed
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git diff --cached --quiet && exit 0
+          git commit -m "docs: refresh profile activity"
+          git push
