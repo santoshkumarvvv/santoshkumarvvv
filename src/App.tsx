@@ -418,11 +418,12 @@ export default function App() {
           </div>
         </section>
 
-        {/* Interactive Systems & Latency Simulator Section */}
+        {/* Interactive Federated Search Sandbox + Systems Latency Simulator */}
         <section
           id="architecture"
-          className="max-w-7xl mx-auto px-6 py-16 border-t border-zinc-200 dark:border-zinc-800/80"
+          className="max-w-7xl mx-auto px-6 py-16 border-t border-zinc-200 dark:border-zinc-800/80 space-y-10"
         >
+          <FederatedSearchSandbox />
           <ArchitectureSimulator />
         </section>
 
