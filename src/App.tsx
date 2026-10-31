@@ -17,6 +17,8 @@ import {
 import { HeroArchitectureVisual, ProjectCardArtwork } from './components/ProjectVisuals';
 import { CommandPalette } from './components/CommandPalette';
 import { ArchitectureSimulator } from './components/ArchitectureSimulator';
+import { FederatedSearchSandbox } from './components/FederatedSearchSandbox';
+import { SaasGatewayConsole } from './components/SaasGatewayConsole';
 import { CaseStudyModal } from './components/CaseStudyModal';
 
 interface GitHubRepo {
@@ -418,11 +420,12 @@ export default function App() {
           </div>
         </section>
 
-        {/* Interactive Federated Search Sandbox + Systems Latency Simulator */}
+        {/* Interactive Micro-SaaS API Gateway & Architecture Simulator */}
         <section
           id="architecture"
           className="max-w-7xl mx-auto px-6 py-16 border-t border-zinc-200 dark:border-zinc-800/80 space-y-10"
         >
+          <SaasGatewayConsole />
           <FederatedSearchSandbox />
           <ArchitectureSimulator />
         </section>

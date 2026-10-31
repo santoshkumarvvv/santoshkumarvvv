@@ -319,6 +319,10 @@ export const FederatedSearchSandbox: React.FC = () => {
             </p>
             <p className="text-xs text-zinc-500 mt-1">
               Try querying for &ldquo;ranker&rdquo;, &ldquo;edge&rdquo;, &ldquo;clean&rdquo;, or reset the filter.
+            </p>
+          </div>
+        )}
+
         {/* Live In-Browser Algorithm Benchmark Arena */}
         <div className="mt-8 pt-6 border-t border-zinc-200 dark:border-zinc-800/80">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-xl bg-zinc-950 text-zinc-100 border border-zinc-800">
