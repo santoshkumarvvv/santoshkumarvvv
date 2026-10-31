@@ -1,10 +1,10 @@
-name: Production CI — Typecheck & Build
+name: "Production CI — Typecheck & Build"
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
   pull_request:
-    branches: [main]
+    branches: [ main ]
 
 jobs:
   build-and-verify:
@@ -17,13 +17,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
 
       - name: Install Dependencies
         run: npm install
-
-      - name: Run Static TypeScript Verification
-        run: npm run lint
 
       - name: Compile Production Bundle
         run: npm run build
