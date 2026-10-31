@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 230" width="100%" height="100%">
+  <rect width="1200" height="230" rx="18" fill="#07090E" stroke="#1E293B" strokeWidth="1.5" />
+
+  <!-- Card 1 -->
+  <g transform="translate(24, 24)">
+    <rect width="368" height="182" rx="14" fill="#0B0F19" stroke="#1E293B" strokeWidth="1.5" />
+    <text x="24" y="36" fill="#3B82F6" fontFamily="JetBrains Mono, monospace" fontSize="11" fontWeight="600">
+      01 · WEB &amp; SEARCH ARCHITECTURE
+    </text>
+    <text x="24" y="68" fill="#F8FAFC" fontFamily="system-ui, -apple-system, sans-serif" fontSize="20" fontWeight="700">
+      Full-Stack TypeScript &amp; Next.js
+    </text>
+    <text x="24" y="98" fill="#94A3B8" fontFamily="system-ui, -apple-system, sans-serif" fontSize="13">
+      Federated query routers, edge-cached inverted indices,
+    </text>
+    <text x="24" y="118" fill="#94A3B8" fontFamily="system-ui, -apple-system, sans-serif" fontSize="13">
+      and zero-CLS React 19 interfaces with Tailwind CSS v4.
+    </text>
+    <line x1="24" y1="140" x2="344" y2="140" stroke="#1E293B" strokeWidth="1" />
+    <text x="24" y="162" fill="#64748B" fontFamily="JetBrains Mono, monospace" fontSize="11">
+      TypeScript 5.8 · React 19 · Next.js · Tailwind v4
+    </text>
+  </g>
+
+  <!-- Card 2 -->
+  <g transform="translate(416, 24)">
+    <rect width="368" height="182" rx="14" fill="#0B0F19" stroke="#1E293B" strokeWidth="1.5" />
+    <text x="24" y="36" fill="#3B82F6" fontFamily="JetBrains Mono, monospace" fontSize="11" fontWeight="600">
+      02 · CROSS-PLATFORM NATIVE ENGINE
+    </text>
+    <text x="24" y="68" fill="#F8FAFC" fontFamily="system-ui, -apple-system, sans-serif" fontSize="20" fontWeight="700">
+      Dart &amp; Flutter Mobile Systems
+    </text>
+    <text x="24" y="98" fill="#94A3B8" fontFamily="system-ui, -apple-system, sans-serif" fontSize="13">
+      Ahead-of-Time compiled native experiences, offline-first
+    </text>
+    <text x="24" y="118" fill="#94A3B8" fontFamily="system-ui, -apple-system, sans-serif" fontSize="13">
+      SQLite state layers, and 120fps Impeller rendering.
+    </text>
+    <line x1="24" y1="140" x2="344" y2="140" stroke="#1E293B" strokeWidth="1" />
+    <text x="24" y="162" fill="#64748B" fontFamily="JetBrains Mono, monospace" fontSize="11">
+      Dart · Flutter · Clean Architecture · SQLite
+    </text>
+  </g>
+
+  <!-- Card 3 -->
+  <g transform="translate(808, 24)">
+    <rect width="368" height="182" rx="14" fill="#0B0F19" stroke="#1E293B" strokeWidth="1.5" />
+    <text x="24" y="36" fill="#3B82F6" fontFamily="JetBrains Mono, monospace" fontSize="11" fontWeight="600">
+      03 · DEVOPS &amp; RELEASE AUTOMATION
+    </text>
+    <text x="24" y="68" fill="#F8FAFC" fontFamily="system-ui, -apple-system, sans-serif" fontSize="20" fontWeight="700">
+      CI/CD &amp; Multi-Cloud Clusters
+    </text>
+    <text x="24" y="98" fill="#94A3B8" fontFamily="system-ui, -apple-system, sans-serif" fontSize="13">
+      Self-healing GitHub Actions verification pipelines and
+    </text>
+    <text x="24" y="118" fill="#94A3B8" fontFamily="system-ui, -apple-system, sans-serif" fontSize="13">
+      declarative deployments on Vercel Edge and Render.
+    </text>
+    <line x1="24" y1="140" x2="344" y2="140" stroke="#1E293B" strokeWidth="1" />
+    <text x="24" y="162" fill="#64748B" fontFamily="JetBrains Mono, monospace" fontSize="11">
+      GitHub Actions · Vercel · Render · Linux Runners
+    </text>
+  </g>
+</svg>

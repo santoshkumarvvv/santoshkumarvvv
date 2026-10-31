@@ -1,4 +1,4 @@
-name: update-readme
+name: Update Profile Activity & Telemetry
 
 on:
   schedule:
@@ -23,7 +23,7 @@ jobs:
           USER="${GITHUB_REPOSITORY_OWNER}"
           {
             echo "<!-- START:activity -->"
-            echo '```'
+            echo '```text'
             gh api "users/${USER}/events/public?per_page=8" \
               --jq '.[] | "\(.created_at[0:16])  \(.type)  \(.repo.name)"'
             echo '```'
@@ -34,7 +34,7 @@ jobs:
           from pathlib import Path
           readme = Path("README.md")
           text = readme.read_text()
-          block = Path("/tmp/activity.md").read_text().strip() + "\n"
+          block = Path("/tmp/activity.md").read_text().strip()
           start, end = "<!-- START:activity -->", "<!-- END:activity -->"
           if start not in text or end not in text:
               raise SystemExit("activity markers missing in README.md")
@@ -51,5 +51,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add README.md
           git diff --cached --quiet && exit 0
-          git commit -m "docs: refresh profile activity"
+          git commit -m "docs: sync live repository telemetry"
           git push
