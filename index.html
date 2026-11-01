@@ -152,15 +152,65 @@
           </div>
         </section>
 
-        <!-- Contact Section for Crawlers -->
-        <section id="contact" style="margin-bottom: 48px; background: #0b0e18; border: 1px solid #1f293d; padding: 28px; border-radius: 12px;">
-          <h2 style="font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 12px;">Direct Contact &amp; Inquiries</h2>
-          <p style="font-size: 14px; color: #a1a1aa; margin-bottom: 16px;">
-            Reach out directly for systems engineering consulting, software architect inquiries, or technical collaboration:
-          </p>
-          <p style="font-size: 14px; color: #38bdf8;">
-            Email: <a href="mailto:kumasantosh947@gmail.com" style="color: #38bdf8; text-decoration: underline;">kumasantosh947@gmail.com</a>
-          </p>
+        <!-- Contact Section for Crawlers & Non-JavaScript Users -->
+        <section id="contact" style="margin-bottom: 48px; background: #0b0e18; border: 1px solid #1f293d; padding: 32px; border-radius: 14px;">
+          <div style="display: flex; flex-direction: column; gap: 24px;">
+            <div>
+              <div style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 12px; padding: 4px 12px; border-radius: 9999px; background: rgba(6, 182, 212, 0.1); border: 1px solid rgba(6, 182, 212, 0.3); font-size: 12px; font-weight: 600; color: #38bdf8;">
+                <span>DIRECT COMMS · संपर्क करें</span>
+              </div>
+              <h2 style="font-size: 26px; font-weight: 800; color: #ffffff; margin-bottom: 8px;">Direct Contact &amp; Engineering Inquiries</h2>
+              <p style="font-size: 14px; color: #a1a1aa; line-height: 1.6; max-width: 640px;">
+                Reach out directly for systems engineering consulting, software architect inquiries, or technical collaboration. Submissions are delivered directly to <span style="color:#38bdf8; font-family:monospace;">kumasantosh947@gmail.com</span>.
+              </p>
+            </div>
+
+            <!-- Complete Working HTML Form for Web3Forms -->
+            <form action="https://api.web3forms.com/submit" method="POST" style="display: flex; flex-direction: column; gap: 16px; max-width: 680px; background: #070913; padding: 24px; border-radius: 12px; border: 1px solid #1e293b;">
+              <!-- Web3Forms Access Key -->
+              <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY" />
+              <input type="hidden" name="to_email" value="kumasantosh947@gmail.com" />
+              <input type="hidden" name="subject" value="Inquiry from santoshkumarvvv.github.io" />
+
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;">
+                <div style="display: flex; flex-direction: column; gap: 6px;">
+                  <label for="contact-name" style="font-size: 12px; font-weight: 600; color: #d4d4d8;">Your Name</label>
+                  <input type="text" id="contact-name" name="name" placeholder="e.g. Alex Chen" required style="padding: 10px 14px; border-radius: 8px; border: 1px solid #27272a; background: #121520; color: #ffffff; font-size: 13px;" />
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 6px;">
+                  <label for="contact-email" style="font-size: 12px; font-weight: 600; color: #d4d4d8;">Your Email <span style="color: #06b6d4;">*</span></label>
+                  <input type="email" id="contact-email" name="email" placeholder="alex@company.com" required style="padding: 10px 14px; border-radius: 8px; border: 1px solid #27272a; background: #121520; color: #ffffff; font-size: 13px;" />
+                </div>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label for="contact-subject" style="font-size: 12px; font-weight: 600; color: #d4d4d8;">Subject / Project Scope</label>
+                <input type="text" id="contact-subject" name="subject" placeholder="Search Engine Architecture, Mobile Engineering, etc." style="padding: 10px 14px; border-radius: 8px; border: 1px solid #27272a; background: #121520; color: #ffffff; font-size: 13px;" />
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label for="contact-message" style="font-size: 12px; font-weight: 600; color: #d4d4d8;">Message <span style="color: #06b6d4;">*</span></label>
+                <textarea id="contact-message" name="message" rows="4" placeholder="Describe your inquiry, project scope, or architecture question..." required style="padding: 10px 14px; border-radius: 8px; border: 1px solid #27272a; background: #121520; color: #ffffff; font-size: 13px; resize: vertical;"></textarea>
+              </div>
+
+              <!-- Success & Error Message Feedback Containers -->
+              <div id="contact-success" style="display: none; padding: 12px 16px; border-radius: 8px; background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.4); color: #34d399; font-size: 13px;">
+                <strong>धन्यवाद!</strong> Your message has been sent successfully. Santosh will reply to your email shortly.
+              </div>
+              <div id="contact-error" style="display: none; padding: 12px 16px; border-radius: 8px; background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.4); color: #f87171; font-size: 13px;">
+                <strong>Error:</strong> Please fill in all required fields and try again, or email directly at <a href="mailto:kumasantosh947@gmail.com" style="color: #f87171; text-decoration: underline;">kumasantosh947@gmail.com</a>.
+              </div>
+
+              <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-top: 6px;">
+                <button type="submit" style="background: linear-gradient(to right, #06b6d4, #2563eb); color: #ffffff; padding: 12px 28px; border-radius: 8px; font-weight: 700; font-size: 13px; border: none; cursor: pointer;">
+                  Send Message Now &rarr;
+                </button>
+                <a href="mailto:kumasantosh947@gmail.com" style="color: #a1a1aa; font-size: 12px; text-decoration: underline;">
+                  Or click to open native email client
+                </a>
+              </div>
+            </form>
+          </div>
         </section>
       </main>
     </div>
