@@ -12,7 +12,9 @@ import {
   Sparkles,
   Terminal,
   Layers,
-  ArrowRight
+  ArrowRight,
+  Wallet,
+  CreditCard
 } from 'lucide-react';
 
 interface CrawledPage {
@@ -78,6 +80,8 @@ export const SearchEmbedStudio: React.FC = () => {
   // Commercial Checkout State
   const [isCheckingOut, setIsCheckingOut] = useState<boolean>(false);
   const [purchasedKey, setPurchasedKey] = useState<string | null>(null);
+  const [customCheckoutUrl, setCustomCheckoutUrl] = useState<string>('');
+  const [showPayoutSettings, setShowPayoutSettings] = useState<boolean>(false);
 
   // Crawl Simulation
   const handleStartCrawl = () => {
@@ -189,6 +193,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   };
 
   const handleTriggerCheckout = (plan: 'ltd' | 'agency') => {
+    if (customCheckoutUrl && customCheckoutUrl.startsWith('http')) {
+      window.location.href = customCheckoutUrl;
+      return;
+    }
     setIsCheckingOut(true);
     setTimeout(() => {
       setIsCheckingOut(false);
@@ -235,6 +243,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <DollarSign className="w-4 h-4" />
               <span>{isCheckingOut ? 'Minting License Key...' : 'Buy Lifetime License ($39 LTD)'}</span>
             </button>
+            <button
+              onClick={() => setShowPayoutSettings(!showPayoutSettings)}
+              className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-emerald-500/30 bg-emerald-950/40 hover:bg-emerald-900/60 text-emerald-300 text-xs font-semibold transition-all cursor-pointer"
+            >
+              <Wallet className="w-4 h-4 text-emerald-400" />
+              <span>{customCheckoutUrl ? 'Bank Link Active' : 'Connect LemonSqueezy / Bank'}</span>
+            </button>
             <a
               href="https://github.com/santoshkumarvvv/santoshkumarvvv"
               target="_blank"
@@ -246,6 +261,37 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </a>
           </div>
         </div>
+
+        {showPayoutSettings && (
+          <div className="mt-6 p-5 rounded-2xl bg-zinc-950/90 border border-emerald-500/30 text-xs space-y-3">
+            <div className="flex items-center justify-between">
+              <span className="font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-2">
+                <CreditCard className="w-4 h-4 text-emerald-400" />
+                <span>Live Bank &amp; LemonSqueezy Direct Payout Routing</span>
+              </span>
+              <span className="text-zinc-500 font-mono">100% Direct Deposits</span>
+            </div>
+            <p className="text-zinc-400 leading-relaxed">
+              Paste your live LemonSqueezy or Gumroad checkout product link below. 
+              When visitors click "Buy", all customer payments flow directly into your LemonSqueezy merchant account and are deposited automatically into your bank account.
+            </p>
+            <div className="flex gap-2">
+              <input
+                type="text"
+                value={customCheckoutUrl}
+                onChange={(e) => setCustomCheckoutUrl(e.target.value)}
+                placeholder="https://yourstore.lemonsqueezy.com/checkout/buy/..."
+                className="w-full px-3.5 py-2 rounded-xl border border-zinc-700 bg-zinc-900 text-zinc-100 font-mono text-xs focus:outline-none focus:ring-1 focus:ring-emerald-500"
+              />
+              <button
+                onClick={() => setShowPayoutSettings(false)}
+                className="px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold rounded-xl shrink-0 transition-colors cursor-pointer"
+              >
+                Save Payout Link
+              </button>
+            </div>
+          </div>
+        )}
 
         {purchasedKey && (
           <div className="mt-6 p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/40 flex flex-col md:flex-row md:items-center justify-between gap-3 animate-fadeIn">
