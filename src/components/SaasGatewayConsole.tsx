@@ -58,7 +58,16 @@ export const SaasGatewayConsole: React.FC = () => {
   };
 
   const handleExecuteApiCall = () => {
-    if (activeKey.remaining <= 0) return;
+    if (activeKey.remaining <= 0) {
+      const quotaErr = {
+        status: 429,
+        error: 'Monthly request quota exhausted.',
+        help: `Your ${activeKey.tier} tier quota has reached 0. Upgrade to Pro ($29/mo) or Enterprise ($99/mo) using the buttons above to resume uninterrupted access.`,
+        suggestedAction: 'Mint a higher tier key or contact enterprise billing.',
+      };
+      setLastResponseJson(JSON.stringify(quotaErr, null, 2));
+      return;
+    }
 
     const lat = Math.floor(Math.random() * 15) + 18;
     setLastLatency(lat);
@@ -68,8 +77,10 @@ export const SaasGatewayConsole: React.FC = () => {
     const mockResponse = {
       status: 200,
       authenticated: true,
+      hashingScheme: 'scrypt:v1 (N=16384, r=8, p=1)',
       tier: activeKey.tier,
       remainingQuota: activeKey.remaining - 1,
+      slidingRateLimit: `${activeKey.rpm} req/min`,
       edgeRegion: 'iad1-edge-gateway',
       latencyMs: lat,
       radarDataCount: RADAR_DATA.length,
@@ -141,7 +152,7 @@ export const SaasGatewayConsole: React.FC = () => {
             <div className="flex items-center justify-between text-xs font-mono text-zinc-400">
               <span className="flex items-center gap-1.5">
                 <Key className="w-3.5 h-3.5 text-blue-400" />
-                ACTIVE CRYPTOGRAPHIC API KEY (SHA-256 VAULT)
+                ACTIVE CRYPTOGRAPHIC API KEY (scrypt:v1 VAULT)
               </span>
               <span className="text-blue-400 uppercase font-semibold">
                 TIER: {activeKey.tier}
@@ -219,9 +230,9 @@ export const SaasGatewayConsole: React.FC = () => {
           <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-900/70 border border-zinc-200 dark:border-zinc-800">
             <span className="text-xs font-mono text-zinc-500 block">SECURITY HASH</span>
             <span className="text-sm font-semibold font-mono text-blue-600 dark:text-blue-400 mt-1.5 block">
-              SHA-256 Vault
+              scrypt:v1 Salted KDF
             </span>
-            <span className="text-xs text-zinc-500 mt-1 block">0 plain-text storage</span>
+            <span className="text-xs text-zinc-500 mt-1 block">N=16384, r=8, p=1</span>
           </div>
         </div>
       </div>
