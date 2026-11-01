@@ -5,8 +5,8 @@
 <br />
 
 <div align="center">
-  <a href="https://ais-pre-suvlbkhc7o536vwz4devdf-851692885567.asia-southeast1.run.app">
-    <img src="https://img.shields.io/badge/LIVE_PORTFOLIO_%26_SIMULATOR-2563EB?style=for-the-badge&logo=googlecloud&logoColor=white" alt="Live Interactive Portfolio" />
+  <a href="https://santoshkumarvvv.github.io/">
+    <img src="https://img.shields.io/badge/LIVE_PORTFOLIO_%26_SIMULATOR-06B6D4?style=for-the-badge&logo=githubpages&logoColor=black" alt="Live Interactive Portfolio" />
   </a>
   &nbsp;
   <a href="https://github.com/santoshkumarvvv/search-hub-">
@@ -32,9 +32,9 @@
 
 | System / Repository | Primary Stack | Architectural Focus & Performance Benchmarks | Access |
 | :--- | :--- | :--- | :--- |
-| **[Search Hub Engine](https://github.com/santoshkumarvvv/search-hub-)** | `TypeScript` · `Next.js` · `Tailwind CSS` | Federated multi-index query router with token-bucket debouncing, edge-cached inverted indices, and **38 ms P95** latency. | [Live Demo →](https://search-hub-pearl.vercel.app) · [Repo →](https://github.com/santoshkumarvvv/search-hub-) |
+| **[Search Hub Engine](https://github.com/santoshkumarvvv/search-hub-)** | `TypeScript` · `Next.js` · `Tailwind CSS` | Federated multi-index query router with token-bucket debouncing, edge-cached inverted indices, and **38 ms P95** latency. | [Inspect Repo →](https://github.com/santoshkumarvvv/search-hub-) |
 | **[Dev Showcase Blueprint](https://github.com/santoshkumarvvv/dev-showcase)** | `TypeScript` · `Clean Architecture` · `GitHub Actions` | Modular domain-driven engineering blueprint with **96.4% test coverage**, security policy enforcement, and automated CI matrix builds. | [Inspect Repo →](https://github.com/santoshkumarvvv/dev-showcase) |
-| **[Search Hub Cloud Node](https://github.com/santoshkumarvvv/search-hub-app)** | `Next.js` · `Vercel Edge` · `Render` | Declarative multi-cloud deployment orchestration (`vercel.json` + `render.yaml`) achieving **99.95% SLA** and **110 ms** cold start overhead. | [Live Demo →](https://search-hub-app.vercel.app) · [Repo →](https://github.com/santoshkumarvvv/search-hub-app) |
+| **[Search Hub Cloud Node](https://github.com/santoshkumarvvv/search-hub-app)** | `Next.js` · `Vercel Edge` · `Render` | Declarative multi-cloud deployment orchestration (`vercel.json` + `render.yaml`) achieving **99.95% SLA** and **110 ms** cold start overhead. | [Inspect Repo →](https://github.com/santoshkumarvvv/search-hub-app) |
 | **[Engineering Command Hub](https://github.com/santoshkumarvvv/santoshkumarvvv)** | `React 19` · `TypeScript` · `Tailwind v4` | Interactive portfolio web application, real-time load & latency simulator, `⌘K` command palette, and self-updating GitHub telemetry daemon. | [Live App →](https://ais-pre-suvlbkhc7o536vwz4devdf-851692885567.asia-southeast1.run.app) |
 
 ---
@@ -98,3 +98,14 @@ npm run dev
 2026-10-29T10:48  PushEvent    santoshkumarvvv/search-hub-
 ```
 <!-- END:activity -->
+ 
+---
+
+### 05 · Content Security Policy (CSP) & Hardening Recommendations
+
+For production deployments embedding `embed.js` across third-party websites or serving this portfolio, configure the following Content Security Policy headers:
+
+```http
+Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://santoshkumarvvv.github.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.github.com; frame-ancestors 'none';
+```
+

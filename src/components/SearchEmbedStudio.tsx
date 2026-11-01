@@ -27,38 +27,38 @@ interface CrawledPage {
 
 const DEFAULT_CRAWLED_PAGES: CrawledPage[] = [
   {
-    url: '/docs/quickstart',
-    title: 'Quickstart Guide — 60s Integration',
-    category: 'Guide',
-    excerpt: 'Paste the single script tag into your HTML head and start serving sub-2ms in-memory searches.',
+    url: 'https://santoshkumarvvv.github.io/#architecture',
+    title: 'SearchEmbed — 1-Line In-Memory Search Engine',
+    category: 'Architecture',
+    excerpt: '14.8KB zero-dependency client-side search widget serving sub-2ms BM25 lexical queries.',
     wordCount: 420
   },
   {
-    url: '/docs/security/scrypt',
-    title: 'Scrypt KDF Key Generation & Auth',
+    url: 'https://santoshkumarvvv.github.io/#works',
+    title: 'Scrypt KDF Cryptographic Authentication',
     category: 'Security',
-    excerpt: 'Cryptographic key derivation ensuring brute-force resilience against GPU and ASIC attacks.',
+    excerpt: 'Deterministic key derivation ensuring brute-force resilience against GPU and ASIC attacks.',
     wordCount: 890
   },
   {
-    url: '/docs/architecture/bm25',
-    title: 'BM25 Term Saturation & Damerau-Levenshtein',
-    category: 'Core Engine',
-    excerpt: 'Lexical scoring with sub-millisecond typo tolerance without cloud database roundtrips.',
+    url: 'https://github.com/santoshkumarvvv/search-hub-',
+    title: 'SearchHub — Universal Federated Query Engine',
+    category: 'Core Repo',
+    excerpt: 'Universal developer search hub with edge caching, token-bucket debouncers, and Next.js.',
     wordCount: 1250
   },
   {
-    url: '/pricing',
-    title: 'Pricing & Lifetime Commercial Deal',
-    category: 'Billing',
-    excerpt: '$39 Lifetime license with unbranded whitelabel embed options and priority SLA.',
-    wordCount: 310
+    url: 'https://github.com/santoshkumarvvv/dev-showcase',
+    title: 'Dev Showcase — Flutter Clean Architecture Engine',
+    category: 'Mobile Engine',
+    excerpt: '120fps native mobile platform built with Clean Architecture, Riverpod, and GitHub Actions CI/CD.',
+    wordCount: 960
   },
   {
-    url: '/docs/web-workers',
-    title: 'Web Worker Thread Offloading',
-    category: 'Performance',
-    excerpt: 'Zero UI freeze indexing. Heavy inverted index computation runs on background threads.',
+    url: 'https://santoshkumarvvv.github.io/assets/Santosh_Kumar_Resume.pdf',
+    title: 'Official Systems Engineering Resume (PDF)',
+    category: 'Credentials',
+    excerpt: 'Verified engineering credentials covering distributed systems, low-latency algorithms, and production stack.',
     wordCount: 640
   }
 ];
