@@ -2,18 +2,13 @@ import React, { useState } from 'react';
 import {
   Code,
   Globe,
-  Sparkles,
   Zap,
   Check,
   Copy,
   ExternalLink,
   ShieldCheck,
   Search,
-  Sliders,
-  DollarSign,
-  TrendingUp,
-  FileText,
-  AlertCircle
+  DollarSign
 } from 'lucide-react';
 
 interface CrawledPage {
@@ -76,7 +71,6 @@ export const SearchEmbedStudio: React.FC = () => {
   const [copiedSnippet, setCopiedSnippet] = useState<string | null>(null);
   
   // Commercial Checkout State
-  const [activePlan, setActivePlan] = useState<'free' | 'ltd' | 'agency'>('ltd');
   const [isCheckingOut, setIsCheckingOut] = useState<boolean>(false);
   const [purchasedKey, setPurchasedKey] = useState<string | null>(null);
 
@@ -124,7 +118,7 @@ export const SearchEmbedStudio: React.FC = () => {
   };
 
   // Typo & BM25 Scoring
-  const filteredResults = crawledPages.filter(p => {
+  const filteredResults = crawledPages.filter((p: CrawledPage) => {
     if (!testQuery.trim()) return true;
     const q = testQuery.toLowerCase().trim();
     return p.title.toLowerCase().includes(q) || p.excerpt.toLowerCase().includes(q) || p.category.toLowerCase().includes(q);
@@ -140,7 +134,7 @@ export const SearchEmbedStudio: React.FC = () => {
   };
 
   // Embed Snippet Code
-  const siteKey = purchasedKey || 'sh_live_demo_' + Math.abs(siteUrl.split('').reduce((a, b) => (a << 5) - a + b.charCodeAt(0), 0)).toString(16);
+  const siteKey = purchasedKey || 'sh_live_demo_' + Math.abs(siteUrl.split('').reduce((a: number, b: string) => (a << 5) - a + b.charCodeAt(0), 0)).toString(16);
   const embedCode = `<!-- SearchEmbed / DocPulse Widget — Add to your <head> -->
 <script
   src="https://santoshkumarvvv.github.io/embed.js"
@@ -319,7 +313,7 @@ export const SearchEmbedStudio: React.FC = () => {
               </span>
             </div>
             <div className="space-y-2 max-h-48 overflow-y-auto pr-1">
-              {crawledPages.map((page, idx) => (
+              {crawledPages.map((page: CrawledPage, idx: number) => (
                 <div key={idx} className="p-2.5 rounded-xl bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-100 dark:border-zinc-800 text-xs flex items-center justify-between">
                   <div className="truncate pr-2">
                     <p className="font-medium text-zinc-900 dark:text-zinc-200 truncate">{page.title}</p>
@@ -367,7 +361,7 @@ export const SearchEmbedStudio: React.FC = () => {
                   No matching indexed documents for "{testQuery}".
                 </div>
               ) : (
-                filteredResults.map((res, i) => (
+                filteredResults.map((res: CrawledPage, i: number) => (
                   <div
                     key={i}
                     className="p-3.5 rounded-xl border border-zinc-100 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 bg-zinc-50/50 dark:bg-zinc-800/40 transition-colors cursor-pointer group"
