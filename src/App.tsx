@@ -47,7 +47,7 @@ interface GitHubRepo {
 const REPO_METADATA: Record<string, { tech_stack: string[]; live_demo?: string; description?: string }> = {
   'search-hub-': {
     tech_stack: ['Next.js 15', 'TypeScript', 'BM25 Engine', 'Web Workers', 'Tailwind CSS', 'Vercel'],
-    live_demo: 'https://search-hub-pearl.vercel.app',
+    live_demo: 'https://github.com/santoshkumarvvv/search-hub-',
     description: 'High-velocity universal developer search engine indexing multi-source technical documentation with Okapi BM25 lexical ranking, Damerau-Levenshtein typo tolerance, and token-bucket debouncing.'
   },
   'dev-showcase': {
@@ -548,7 +548,10 @@ export default function App() {
               <div className="pt-8 mt-8 border-t border-zinc-200 dark:border-zinc-800/80 flex flex-wrap items-center justify-between gap-4">
                 <div className="flex flex-wrap items-center gap-3">
                   <a
-                    href="#architecture"
+                    href="https://github.com/santoshkumarvvv/search-hub-"
+                    title="Live demo coming soon"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="px-5 py-2.5 text-xs font-bold text-zinc-950 bg-gradient-to-r from-cyan-400 to-cyan-300 hover:from-cyan-300 hover:to-cyan-200 rounded-lg transition-all shadow-md shadow-cyan-500/20 whitespace-nowrap shrink-0 flex items-center gap-1.5"
                   >
                     <span>{t.tryDemoBtn}</span>

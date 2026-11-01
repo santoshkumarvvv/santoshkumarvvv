@@ -236,7 +236,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
             <a
-              href="https://search-hub-pearl.vercel.app"
+              href="https://github.com/santoshkumarvvv/search-hub-"
+              title="Live demo coming soon"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-sm transition-all shadow-lg shadow-cyan-500/30 active:scale-95"
@@ -559,7 +560,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </li>
               </ul>
               <a
-                href="https://search-hub-pearl.vercel.app"
+                href="https://github.com/santoshkumarvvv/search-hub-"
+                title="Live demo coming soon"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full py-2.5 px-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-zinc-950 font-bold text-xs transition-all shadow-md shadow-cyan-500/20 active:scale-95 flex items-center justify-center gap-1.5"
