@@ -1,10 +1,25 @@
 <!doctype html>
+<!-- html lang="en" by default; inline script updates lang attribute to "hi" when Hindi is selected in localStorage -->
 <html lang="en" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404: Node Not Found — Santosh Kumar</title>
+  <title>404: Node Not Found — Santosh Kumar Systems Hub</title>
+  <meta name="description" content="404 Route Exception — The requested path does not exist on Santosh Kumar's Systems & Search Engine Engineering Portfolio.">
+  <meta name="theme-color" content="#05060b">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <script>
+    (function() {
+      try {
+        var lang = localStorage.getItem('lang');
+        if (lang === 'hi') {
+          document.documentElement.setAttribute('lang', 'hi');
+        } else {
+          document.documentElement.setAttribute('lang', 'en');
+        }
+      } catch (e) {}
+    })();
+  </script>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {

@@ -62,6 +62,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
           <Search className="w-4 h-4 text-zinc-400 shrink-0" />
           <input
             type="text"
+            aria-label="Search command menu"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search projects, architecture specs, TypeScript modules, or actions..."

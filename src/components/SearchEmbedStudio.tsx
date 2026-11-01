@@ -272,15 +272,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <CreditCard className="w-4 h-4 text-emerald-400" />
                 <span>Live Bank &amp; LemonSqueezy Direct Payout Routing</span>
               </span>
-              <span className="text-zinc-500 font-mono">100% Direct Deposits</span>
+              <span className="text-zinc-400 font-mono">100% Direct Deposits</span>
             </div>
-            <p className="text-zinc-400 leading-relaxed">
+            <p className="text-zinc-300 leading-relaxed">
               Paste your live LemonSqueezy or Gumroad checkout product link below. 
               When visitors click "Buy", all customer payments flow directly into your LemonSqueezy merchant account and are deposited automatically into your bank account.
             </p>
             <div className="flex gap-2">
               <input
                 type="text"
+                aria-label="LemonSqueezy or Gumroad checkout URL"
                 value={customCheckoutUrl}
                 onChange={(e) => setCustomCheckoutUrl(e.target.value)}
                 placeholder="https://yourstore.lemonsqueezy.com/checkout/buy/..."
@@ -334,10 +335,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </div>
 
             <div className="space-y-2">
-              <label className="text-xs font-medium text-zinc-300">Target Website or Sitemap URL</label>
+              <label htmlFor="sitemap-url-input" className="text-xs font-medium text-zinc-300">Target Website or Sitemap URL</label>
               <div className="flex gap-2">
                 <input
+                  id="sitemap-url-input"
                   type="text"
+                  aria-label="Target Website or Sitemap URL"
                   value={siteUrl}
                   onChange={(e) => setSiteUrl(e.target.value)}
                   placeholder="https://yourblog.com"
@@ -366,17 +369,19 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             )}
 
             <div className="pt-3 border-t border-zinc-800 space-y-4">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-400 flex items-center gap-1.5">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-300 flex items-center gap-1.5">
                 <Layers className="w-3.5 h-3.5 text-cyan-400" />
                 <span>Widget Appearance Customization</span>
               </h4>
               
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="text-xs text-zinc-400 block mb-1">Accent Glow</label>
+                  <label htmlFor="accent-glow-color" className="text-xs text-zinc-300 block mb-1">Accent Glow</label>
                   <div className="flex items-center gap-2">
                     <input
+                      id="accent-glow-color"
                       type="color"
+                      aria-label="Accent Glow Color"
                       value={accentColor}
                       onChange={(e) => setAccentColor(e.target.value)}
                       className="w-8 h-8 rounded-lg cursor-pointer border-0 bg-transparent"
@@ -386,8 +391,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </div>
 
                 <div>
-                  <label className="text-xs text-zinc-400 block mb-1">Trigger Position</label>
+                  <label htmlFor="trigger-position-select" className="text-xs text-zinc-300 block mb-1">Trigger Position</label>
                   <select
+                    id="trigger-position-select"
+                    aria-label="Trigger Position"
                     value={position}
                     onChange={(e) => setPosition(e.target.value as any)}
                     className="w-full px-2.5 py-1.5 text-xs rounded-lg border border-zinc-700 bg-zinc-900 text-white focus:outline-none focus:ring-1 focus:ring-cyan-500"
@@ -413,7 +420,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <div key={idx} className="p-2.5 rounded-xl bg-zinc-900/70 border border-zinc-800/80 text-xs flex items-center justify-between">
                   <div className="truncate pr-2">
                     <p className="font-medium text-white truncate">{page.title}</p>
-                    <p className="text-zinc-500 font-mono text-[10px] truncate">{page.url}</p>
+                    <p className="text-zinc-400 font-mono text-[10px] truncate">{page.url}</p>
                   </div>
                   <span className="shrink-0 text-[10px] px-1.5 py-0.5 rounded bg-zinc-800 text-zinc-300">
                     {page.category}
@@ -443,6 +450,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <Search className="w-4 h-4 text-zinc-400 absolute left-3.5 top-3.5" />
               <input
                 type="text"
+                aria-label="Search indexed pages in preview"
                 value={testQuery}
                 onChange={(e) => handleTestQueryChange(e.target.value)}
                 placeholder="Try searching 'scrypt', 'guide', 'bm25', or misspell 'qickstart'..."

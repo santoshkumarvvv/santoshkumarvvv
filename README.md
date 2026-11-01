@@ -106,6 +106,44 @@ npm run dev
 For production deployments embedding `embed.js` across third-party websites or serving this portfolio, configure the following Content Security Policy headers:
 
 ```http
-Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://santoshkumarvvv.github.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.github.com; frame-ancestors 'none';
+Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://santoshkumarvvv.github.io; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; connect-src 'self' https://api.github.com https://api.web3forms.com https://search-hub-pearl.vercel.app; frame-ancestors 'none';
 ```
+
+---
+
+### 06 · Deploying the Serverless BM25 Search API (`api/search/route.ts`) to Vercel
+
+This repository includes a self-contained, zero-dependency serverless BM25 search endpoint at [`api/search/route.ts`](./api/search/route.ts). It implements:
+- **HTTP GET `?q=` Query Handler**: Tokenizes queries and ranks a 10-document engineering index using Okapi BM25 (`k1 = 1.2`, `b = 0.75`) with Robertson-Spärck Jones IDF.
+- **In-Memory Rate Limiting**: Enforces 10 requests per minute per client IP using a sliding-window `Map<string, number[]>`.
+- **Strict CORS Policy**: Allows cross-origin requests from `https://santoshkumarvvv.github.io`.
+
+#### Step-by-Step Deployment to Your Vercel Project (`search-hub-`)
+
+1. **Copy the Route File into Your Vercel Repository**:
+   - **Next.js App Router (`app/` directory)**: Copy `api/search/route.ts` from this repo into `app/api/search/route.ts` in your Vercel project.
+   - **Standard Vercel Serverless (`api/` directory)**: Copy `api/search/route.ts` directly into `api/search/route.ts` at the root of your Vercel project.
+
+   ```bash
+   # Example from terminal:
+   mkdir -p /path/to/your-vercel-project/app/api/search
+   cp api/search/route.ts /path/to/your-vercel-project/app/api/search/route.ts
+   ```
+
+2. **Commit & Push to Trigger Vercel Deployment**:
+   ```bash
+   cd /path/to/your-vercel-project
+   git add app/api/search/route.ts
+   git commit -m "feat(api): add BM25 /api/search endpoint with rate limiting and CORS"
+   git push origin main
+   ```
+   *(Or run `npx vercel --prod` using the Vercel CLI).*
+
+3. **Verify the Live Endpoint**:
+   ```bash
+   curl -i -H "Origin: https://santoshkumarvvv.github.io" \
+     "https://search-hub-pearl.vercel.app/api/search?q=bm25"
+   ```
+   The endpoint returns HTTP `200 OK` with `Access-Control-Allow-Origin: https://santoshkumarvvv.github.io`, `X-RateLimit-Remaining`, and ranked JSON results (`title`, `url`, `snippet`, `score`).
+
 

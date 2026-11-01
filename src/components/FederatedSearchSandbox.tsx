@@ -200,6 +200,7 @@ export const FederatedSearchSandbox: React.FC = () => {
           <Search className="w-4 h-4 text-zinc-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
           <input
             type="text"
+            aria-label="Query across federated modules"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Query across modules (e.g., 'edge', 'ranker', 'clean architecture', 'yaml')..."
