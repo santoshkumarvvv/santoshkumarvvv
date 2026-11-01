@@ -79,12 +79,11 @@
   <p>The path you navigated to does not exist on this cluster. Return to the primary systems engineering hub to explore live search architectures and selected works.</p>
   <a href="/" class="btn">Return to Systems Command Hub &rarr;</a>
   <script>
-    // SPA fallback handling
-    const path = window.location.pathname;
-    if (path.startsWith('/santoshkumarvvv') && path !== '/santoshkumarvvv/') {
-      // In case of sub-path navigation on GitHub Pages
-      window.location.replace('/santoshkumarvvv/');
-    }
+    // Root GitHub Pages SPA redirection
+    // Automatically redirect back to the home hub after a short delay
+    setTimeout(() => {
+      window.location.replace('/');
+    }, 3500);
   </script>
 </body>
 </html>

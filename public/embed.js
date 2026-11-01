@@ -3,10 +3,10 @@
  * (c) Santosh Kumar (https://github.com/santoshkumarvvv)
  * Distributed under MIT License
  * 
- * In-Memory BM25 Lexical Algorithm Note:
- * This client-side engine executes in-browser with zero database roundtrips.
- * BM25 lexical saturation scores exact word matches first, then applies
- * Damerau-Levenshtein transposition/insertion/deletion distance for tokens >= 4 characters.
+ * In-Memory Lexical Search Algorithm:
+ * This client-side engine executes directly in-browser with zero database roundtrips.
+ * Term-frequency (TF) weighting scores exact title and excerpt matches, paired with
+ * bounded Damerau-Levenshtein transposition distance for tokens >= 4 characters.
  */
 (function () {
   'use strict';
@@ -368,9 +368,7 @@
 
     if (!searchInput.value.trim()) {
       resultsBox.innerHTML = '';
-      const initialDiv = document.createElement('div');
-      initialDiv.style.cssText = 'padding: 24px; text-align: center; color: #71717a; font-size: 13px;';
-      initialDiv.textContent = `Type anything to search across ${searchIndex.length} real indexed pages (sub-2ms BM25)...`;
+      initialDiv.textContent = `Type anything to search across ${searchIndex.length} real indexed pages...`;
       resultsBox.appendChild(initialDiv);
       return;
     }

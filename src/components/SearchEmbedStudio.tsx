@@ -30,7 +30,7 @@ const DEFAULT_CRAWLED_PAGES: CrawledPage[] = [
     url: 'https://santoshkumarvvv.github.io/#architecture',
     title: 'SearchEmbed — 1-Line In-Memory Search Engine',
     category: 'Architecture',
-    excerpt: '14.8KB zero-dependency client-side search widget serving sub-2ms BM25 lexical queries.',
+    excerpt: '14.8KB zero-dependency client-side search widget serving low-latency in-browser BM25 queries.',
     wordCount: 420
   },
   {
@@ -112,7 +112,7 @@ export const SearchEmbedStudio: React.FC = () => {
           url: `https://${cleanDomain}/blog/announcing-v2`,
           title: `Announcing v2.0 In-Memory BM25 Speed Boost`,
           category: 'Blog',
-          excerpt: `How we eliminated cloud database roundtrips to achieve sub-2ms search responses.`,
+          excerpt: `How we eliminated cloud database roundtrips to achieve instant in-memory search responses.`,
           wordCount: 880
         },
         {
@@ -230,7 +230,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             
             <p className="text-sm md:text-base text-zinc-300 leading-relaxed">
               1-Line embed replacing expensive Algolia &amp; Elasticsearch setups. 
-              Zero server queries, sub-2ms Damerau-Levenshtein typo tolerance, and automated sitemap crawling.
+              Zero server queries, instant Damerau-Levenshtein typo tolerance, and automated sitemap crawling.
             </p>
           </div>
 
@@ -539,7 +539,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <ul className="text-xs text-zinc-300 space-y-1.5 font-medium">
                 <li className="flex items-center gap-2">
                   <Check className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
-                  <span>Sub-2ms BM25 in-memory ranking</span>
+                  <span>Low-latency in-memory BM25 ranking</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="w-3.5 h-3.5 text-cyan-400 shrink-0" />

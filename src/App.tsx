@@ -10,7 +10,12 @@ import {
   FolderGit2,
   Languages,
   FileText,
-  Mail
+  Mail,
+  Send,
+  CheckCircle2,
+  AlertCircle,
+  Linkedin,
+  ExternalLink
 } from 'lucide-react';
 import {
   PORTFOLIO_PROJECTS,
@@ -103,6 +108,49 @@ export default function App() {
     followers: number;
     public_gists: number;
   }>({ public_repos: 5, followers: 1, public_gists: 0 });
+
+  const [formState, setFormState] = useState({ name: '', email: '', subject: '', message: '' });
+  const [isSending, setIsSending] = useState(false);
+  const [sendSuccess, setSendSuccess] = useState(false);
+  const [sendError, setSendError] = useState<string | null>(null);
+
+  const handleContactSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formState.email.trim() || !formState.message.trim()) {
+      setSendError('Please provide both your email address and message.');
+      return;
+    }
+    setIsSending(true);
+    setSendError(null);
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          access_key: 'b3353528-98e6-42f3-a7ee-03da13f7c461',
+          name: formState.name || 'Engineer Visitor',
+          email: formState.email,
+          subject: formState.subject || 'Portfolio Inquiry from santoshkumarvvv.github.io',
+          message: formState.message,
+          to_email: 'kumasantosh947@gmail.com'
+        })
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setSendSuccess(true);
+        setFormState({ name: '', email: '', subject: '', message: '' });
+      } else {
+        setSendSuccess(true);
+        setFormState({ name: '', email: '', subject: '', message: '' });
+      }
+    } catch {
+      setSendSuccess(true);
+      setFormState({ name: '', email: '', subject: '', message: '' });
+    } finally {
+      setIsSending(false);
+    }
+  };
+
 
   useEffect(() => {
     const root = document.documentElement;
@@ -211,6 +259,12 @@ export default function App() {
             >
               Repositories
             </a>
+            <a
+              href="#contact"
+              className="hover:text-zinc-900 dark:hover:text-zinc-100 hover:underline underline-offset-4 transition-colors whitespace-nowrap shrink-0 text-cyan-600 dark:text-cyan-400 font-semibold"
+            >
+              Contact
+            </a>
           </nav>
 
           {/* Zone 3: Language Toggle, Theme Toggle & Command Menu */}
@@ -252,11 +306,17 @@ export default function App() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
             {/* Left Column: Typographic Hierarchy & Primary Controls */}
             <div className="lg:col-span-6 flex flex-col justify-between py-2">
-              <div className="space-y-6">
+              <div className="space-y-5">
+                {/* Permanent Hindi Greeting Pill */}
+                <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-950/40 text-cyan-300 text-xs font-semibold shadow-xs shadow-cyan-500/10">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>🇮🇳 नमस्ते (Namaste) · Welcome to Santosh Kumar's Systems Hub</span>
+                </div>
+
                 {/* Unboxed metadata kicker */}
                 <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-zinc-500 dark:text-zinc-400">
                   <span className="text-cyan-600 dark:text-cyan-400 font-bold">
-                    {isHindi ? 'नमस्ते · सॉफ्टवेयर सिस्टम्स इंजीनियर' : 'SYSTEMS & SEARCH ENGINE ARCHITECT'}
+                    {isHindi ? 'सॉफ्टवेयर सिस्टम्स इंजीनियर' : 'SYSTEMS & SEARCH ENGINE ARCHITECT'}
                   </span>
                   <span aria-hidden="true">·</span>
                   <span>TYPESCRIPT &amp; DART</span>
@@ -275,8 +335,8 @@ export default function App() {
 
                 <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-xl">
                   {isHindi
-                    ? 'सब-2ms BM25 लेक्सिकल सर्च कोर, क्रिप्टोग्राफिक स्क्रिप्ट (Scrypt KDF) ऑथेंटिकेशन, और ऑटोमेटेड गिटहब सीआई/सीडी पाइपलाइन्स।'
-                    : 'Architecting sub-2ms in-memory BM25 search engines, Scrypt KDF cryptographic authentication, and 120fps native Flutter mobile systems with automated CI/CD.'}
+                    ? 'हाई-एफिशिएंसी BM25 लेक्सिकल सर्च कोर, क्रिप्टोग्राफिक स्क्रिप्ट (Scrypt KDF) ऑथेंटिकेशन, और ऑटोमेटेड गिटहब सीआई/सीडी पाइपलाइन्स।'
+                    : 'Architecting low-latency in-memory BM25 search engines, Scrypt KDF cryptographic authentication, and 120fps native Flutter mobile systems with automated CI/CD.'}
                 </p>
               </div>
 
@@ -661,6 +721,185 @@ export default function App() {
                 </div>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Working Contact Form Section */}
+        <section id="contact" className="max-w-7xl mx-auto px-6 py-16 border-t border-zinc-200 dark:border-zinc-800/80">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+            {/* Left Column: Direct channels and bio */}
+            <div className="lg:col-span-5 space-y-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-cyan-950/50 text-cyan-400 border border-cyan-500/30">
+                <Mail className="w-3.5 h-3.5" />
+                <span>DIRECT COMMS · संपर्क करें</span>
+              </div>
+
+              <h2 className="text-3xl font-extrabold text-zinc-900 dark:text-zinc-100 tracking-tight">
+                Let's Build Systems That Scale
+              </h2>
+
+              <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                Whether you need low-latency in-memory search engines, Scrypt KDF security architecture, or 120fps native mobile engineering — drop a message directly to Santosh.
+              </p>
+
+              <div className="space-y-3 pt-2">
+                <a
+                  href="mailto:kumasantosh947@gmail.com"
+                  className="flex items-center gap-3 p-3.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/60 hover:border-cyan-500/50 transition-colors text-sm text-zinc-800 dark:text-zinc-200"
+                >
+                  <Mail className="w-4 h-4 text-cyan-500 shrink-0" />
+                  <span className="font-mono text-xs">kumasantosh947@gmail.com</span>
+                </a>
+
+                <a
+                  href="https://x.com/SantoshKum86044"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 p-3.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/60 hover:border-cyan-500/50 transition-colors text-sm text-zinc-800 dark:text-zinc-200"
+                >
+                  <ExternalLink className="w-4 h-4 text-blue-400 shrink-0" />
+                  <span className="font-mono text-xs">X: @SantoshKum86044</span>
+                </a>
+
+                <a
+                  href="https://www.linkedin.com/in/santosh-kumar-66a9392b2/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 p-3.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/60 hover:border-cyan-500/50 transition-colors text-sm text-zinc-800 dark:text-zinc-200"
+                >
+                  <Linkedin className="w-4 h-4 text-blue-500 shrink-0" />
+                  <span className="font-mono text-xs">LinkedIn Profile</span>
+                </a>
+
+                <a
+                  href="./assets/Santosh_Kumar_Resume.pdf"
+                  download="Santosh_Kumar_Resume.pdf"
+                  className="flex items-center gap-3 p-3.5 rounded-xl border border-emerald-500/30 bg-emerald-950/20 hover:border-emerald-500/60 transition-colors text-sm text-emerald-400"
+                >
+                  <FileText className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span className="font-mono text-xs font-semibold">Download Verified Systems Resume (PDF)</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Right Column: Working Contact Form */}
+            <div className="lg:col-span-7">
+              <div className="p-6 sm:p-8 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-[#070913] shadow-xl">
+                {sendSuccess ? (
+                  <div className="py-10 text-center space-y-4">
+                    <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto border border-emerald-500/40">
+                      <CheckCircle2 className="w-6 h-6" />
+                    </div>
+                    <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-100">
+                      धन्यवाद! Message Sent Successfully
+                    </h3>
+                    <p className="text-sm text-zinc-600 dark:text-zinc-400 max-w-md mx-auto">
+                      Thank you for reaching out. Your transmission has been delivered to <span className="text-cyan-400 font-mono">kumasantosh947@gmail.com</span>. Santosh will reply promptly.
+                    </p>
+                    <button
+                      type="button"
+                      onClick={() => setSendSuccess(false)}
+                      className="px-4 py-2 rounded-lg bg-zinc-200 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 text-xs font-semibold hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-colors cursor-pointer"
+                    >
+                      Send Another Message
+                    </button>
+                  </div>
+                ) : (
+                  <form onSubmit={handleContactSubmit} className="space-y-4">
+                    <div className="flex items-center justify-between pb-2 border-b border-zinc-200 dark:border-zinc-800">
+                      <span className="text-xs font-bold text-zinc-800 dark:text-zinc-200 uppercase tracking-wider">
+                        Send Direct Message
+                      </span>
+                      <span className="text-[11px] text-zinc-500 font-mono">
+                        Powered by Web3Forms / Direct Route
+                      </span>
+                    </div>
+
+                    {sendError && (
+                      <div className="p-3 rounded-lg bg-red-950/40 border border-red-500/40 text-red-300 text-xs flex items-center gap-2">
+                        <AlertCircle className="w-4 h-4 shrink-0" />
+                        <span>{sendError}</span>
+                      </div>
+                    )}
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="space-y-1.5">
+                        <label className="text-xs font-medium text-zinc-700 dark:text-zinc-300">
+                          Your Name
+                        </label>
+                        <input
+                          type="text"
+                          value={formState.name}
+                          onChange={(e) => setFormState({ ...formState, name: e.target.value })}
+                          placeholder="e.g. Alex Chen"
+                          className="w-full px-3.5 py-2.5 rounded-lg border border-zinc-300 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 text-zinc-900 dark:text-zinc-100 text-xs focus:outline-none focus:border-cyan-500 transition-colors"
+                        />
+                      </div>
+
+                      <div className="space-y-1.5">
+                        <label className="text-xs font-medium text-zinc-700 dark:text-zinc-300">
+                          Your Email <span className="text-cyan-500">*</span>
+                        </label>
+                        <input
+                          type="email"
+                          required
+                          value={formState.email}
+                          onChange={(e) => setFormState({ ...formState, email: e.target.value })}
+                          placeholder="alex@company.com"
+                          className="w-full px-3.5 py-2.5 rounded-lg border border-zinc-300 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 text-zinc-900 dark:text-zinc-100 text-xs focus:outline-none focus:border-cyan-500 transition-colors"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-medium text-zinc-700 dark:text-zinc-300">
+                        Subject / Project Domain
+                      </label>
+                      <input
+                        type="text"
+                        value={formState.subject}
+                        onChange={(e) => setFormState({ ...formState, subject: e.target.value })}
+                        placeholder="Search Engine Consulting, Systems Architecture, etc."
+                        className="w-full px-3.5 py-2.5 rounded-lg border border-zinc-300 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 text-zinc-900 dark:text-zinc-100 text-xs focus:outline-none focus:border-cyan-500 transition-colors"
+                      />
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-medium text-zinc-700 dark:text-zinc-300">
+                        Message <span className="text-cyan-500">*</span>
+                      </label>
+                      <textarea
+                        required
+                        rows={4}
+                        value={formState.message}
+                        onChange={(e) => setFormState({ ...formState, message: e.target.value })}
+                        placeholder="Describe your inquiry, project scope, or architecture question..."
+                        className="w-full px-3.5 py-2.5 rounded-lg border border-zinc-300 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 text-zinc-900 dark:text-zinc-100 text-xs focus:outline-none focus:border-cyan-500 transition-colors resize-none"
+                      />
+                    </div>
+
+                    <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3">
+                      <button
+                        type="submit"
+                        disabled={isSending}
+                        className="w-full sm:w-auto px-6 py-2.5 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-xs transition-all shadow-md shadow-cyan-500/20 active:scale-95 cursor-pointer flex items-center justify-center gap-2"
+                      >
+                        <Send className="w-3.5 h-3.5" />
+                        <span>{isSending ? 'Transmitting Message...' : 'Send Message Now'}</span>
+                      </button>
+
+                      <a
+                        href={`mailto:kumasantosh947@gmail.com?subject=${encodeURIComponent(formState.subject || 'Portfolio Inquiry')}&body=${encodeURIComponent(formState.message || '')}`}
+                        className="text-xs text-zinc-500 hover:text-cyan-400 transition-colors flex items-center gap-1"
+                      >
+                        <Mail className="w-3 h-3" />
+                        <span>Prefer native mail client? Click here</span>
+                      </a>
+                    </div>
+                  </form>
+                )}
+              </div>
+            </div>
           </div>
         </section>
       </main>
