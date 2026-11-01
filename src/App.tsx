@@ -364,11 +364,11 @@ export default function App() {
                     <span>Download CV / Resume</span>
                   </a>
                   <a
-                    href="mailto:kumasantosh947@gmail.com"
+                    href="#contact"
                     className="inline-flex items-center gap-1.5 px-4 py-2.5 text-xs font-medium text-zinc-800 dark:text-zinc-200 bg-zinc-200/80 dark:bg-zinc-900 hover:bg-zinc-300/70 dark:hover:bg-zinc-800 border border-zinc-300 dark:border-zinc-800 rounded-lg transition-colors whitespace-nowrap shrink-0"
                   >
                     <Mail className="w-3.5 h-3.5 text-cyan-400" />
-                    <span>Contact</span>
+                    <span>Contact Form</span>
                   </a>
                   <a
                     href="https://x.com/SantoshKum86044"
