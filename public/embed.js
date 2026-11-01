@@ -35,7 +35,7 @@
     {
       title: 'SearchHub — Federated In-Memory BM25 Engine',
       url: 'https://github.com/santoshkumarvvv/search-hub-',
-      excerpt: 'Sub-2ms typo-tolerant search core in TypeScript with Damerau-Levenshtein scoring.',
+      excerpt: 'Low-latency in-memory BM25 lexical search core in TypeScript with Damerau-Levenshtein scoring.',
       category: 'Core Repo'
     },
     {
