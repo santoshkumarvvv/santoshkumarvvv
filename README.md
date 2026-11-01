@@ -32,9 +32,9 @@
 
 | System / Repository | Primary Stack | Architectural Focus & Performance Benchmarks | Access |
 | :--- | :--- | :--- | :--- |
-| **[Search Hub Engine](https://github.com/santoshkumarvvv/search-hub-)** | `TypeScript` · `Next.js` · `Tailwind CSS` | Federated multi-index query router with token-bucket debouncing, edge-cached inverted indices, and **38 ms P95** latency. | [Inspect Repo →](https://github.com/santoshkumarvvv/search-hub-) |
+| **[Search Hub Engine](https://github.com/santoshkumarvvv/search-hub-)** | `TypeScript` · `Next.js` · `Tailwind CSS` | Federated multi-index query router with token-bucket debouncing, edge-cached inverted indices, and **38 ms P95** latency. | [Live Demo →](https://search-hub-pearl.vercel.app) · [Repo →](https://github.com/santoshkumarvvv/search-hub-) |
 | **[Dev Showcase Blueprint](https://github.com/santoshkumarvvv/dev-showcase)** | `TypeScript` · `Clean Architecture` · `GitHub Actions` | Modular domain-driven engineering blueprint with **96.4% test coverage**, security policy enforcement, and automated CI matrix builds. | [Inspect Repo →](https://github.com/santoshkumarvvv/dev-showcase) |
-| **[Search Hub Cloud Node](https://github.com/santoshkumarvvv/search-hub-app)** | `Next.js` · `Vercel Edge` · `Render` | Declarative multi-cloud deployment orchestration (`vercel.json` + `render.yaml`) achieving **99.95% SLA** and **110 ms** cold start overhead. | [Inspect Repo →](https://github.com/santoshkumarvvv/search-hub-app) |
+| **[Search Hub Cloud Node](https://github.com/santoshkumarvvv/search-hub-app)** | `Next.js` · `Vercel Edge` · `Render` | Declarative multi-cloud deployment orchestration (`vercel.json` + `render.yaml`) achieving **99.95% SLA** and **110 ms** cold start overhead. | [Live Demo →](https://search-hub-app.vercel.app) · [Repo →](https://github.com/santoshkumarvvv/search-hub-app) |
 | **[Engineering Command Hub](https://github.com/santoshkumarvvv/santoshkumarvvv)** | `React 19` · `TypeScript` · `Tailwind v4` | Interactive portfolio web application, real-time load & latency simulator, `⌘K` command palette, and self-updating GitHub telemetry daemon. | [Live App →](https://ais-pre-suvlbkhc7o536vwz4devdf-851692885567.asia-southeast1.run.app) |
 
 ---
