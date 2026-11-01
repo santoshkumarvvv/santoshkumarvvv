@@ -116,11 +116,11 @@ export const SearchEmbedStudio: React.FC = () => {
           wordCount: 880
         },
         {
-          url: `https://${cleanDomain}/pricing`,
-          title: `Lifetime Deal & Enterprise Fleet Licensing`,
-          category: 'Pricing',
-          excerpt: `Compare starter, pro, and enterprise tiers with volume discounts.`,
-          wordCount: 390
+          url: `https://${cleanDomain}/#embed`,
+          title: `Client SDK Integration & Live API Key`,
+          category: 'Integration',
+          excerpt: `Production script snippet with sh_live_demo key and BM25 configuration.`,
+          wordCount: 420
         }
       ]);
     }, 850);
@@ -235,29 +235,32 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-            <button
-              onClick={() => handleTriggerCheckout('ltd')}
-              disabled={isCheckingOut}
-              className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-sm transition-all shadow-lg shadow-cyan-500/30 active:scale-95 cursor-pointer"
-            >
-              <DollarSign className="w-4 h-4" />
-              <span>{isCheckingOut ? 'Minting License Key...' : 'Buy Lifetime License ($39 LTD)'}</span>
-            </button>
-            <button
-              onClick={() => setShowPayoutSettings(!showPayoutSettings)}
-              className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-emerald-500/30 bg-emerald-950/40 hover:bg-emerald-900/60 text-emerald-300 text-xs font-semibold transition-all cursor-pointer"
-            >
-              <Wallet className="w-4 h-4 text-emerald-400" />
-              <span>{customCheckoutUrl ? 'Bank Link Active' : 'Connect LemonSqueezy / Bank'}</span>
-            </button>
             <a
-              href="https://github.com/santoshkumarvvv/santoshkumarvvv"
+              href="https://search-hub-pearl.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-sm transition-all shadow-lg shadow-cyan-500/30 active:scale-95"
+            >
+              <ExternalLink className="w-4 h-4" />
+              <span>Launch Live App (Vercel)</span>
+            </a>
+            <a
+              href="https://github.com/santoshkumarvvv/search-hub-"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-zinc-700 bg-zinc-900/80 hover:bg-zinc-800 text-zinc-200 text-sm font-medium transition-colors"
             >
-              <ExternalLink className="w-4 h-4" />
-              <span>GitHub Core Repo</span>
+              <Code className="w-4 h-4 text-cyan-400" />
+              <span>Search Engine Repo</span>
+            </a>
+            <a
+              href="https://github.com/santoshkumarvvv/search-hub-app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-purple-500/30 bg-purple-950/30 hover:bg-purple-900/40 text-purple-200 text-sm font-medium transition-colors"
+            >
+              <Layers className="w-4 h-4 text-purple-400" />
+              <span>Flutter Mobile App</span>
             </a>
           </div>
         </div>
@@ -520,75 +523,75 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </div>
           </div>
 
-          {/* Pricing Tiers & LemonSqueezy Instant Checkout */}
+          {/* Open Source Engine & Cross-Platform Fleet Architecture */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {/* $39 Lifetime Deal */}
+            {/* Open Core Production Engine */}
             <div className="p-5 rounded-2xl border-2 border-cyan-500/50 bg-gradient-to-b from-cyan-950/30 to-[#070a14] space-y-3 relative overflow-hidden shadow-lg shadow-cyan-950/30">
               <div className="absolute top-3 right-3 px-2 py-0.5 rounded-full bg-cyan-400 text-zinc-950 text-[10px] font-extrabold uppercase tracking-wider">
-                POPULAR LTD
+                100% OPEN ARCHITECTURE
               </div>
               <div>
-                <h4 className="font-bold text-white text-sm">Pro Lifetime License</h4>
+                <h4 className="font-bold text-white text-sm">SearchHub Core Engine</h4>
                 <div className="mt-1 flex items-baseline gap-1">
-                  <span className="text-3xl font-extrabold text-white">$39</span>
-                  <span className="text-xs text-zinc-400">one-time payment</span>
+                  <span className="text-2xl font-extrabold text-white">Free &amp; Open Source</span>
                 </div>
               </div>
               <ul className="text-xs text-zinc-300 space-y-1.5 font-medium">
                 <li className="flex items-center gap-2">
                   <Check className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
-                  <span>Whitelabel (Remove "Powered By" mark)</span>
+                  <span>Sub-2ms BM25 in-memory ranking</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
-                  <span>Up to 10,000 indexed pages per domain</span>
+                  <span>Bounded Damerau-Levenshtein typo correction (len &ge; 4)</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
-                  <span>Custom CSS tokens and font matching</span>
+                  <span>Full keyboard accessibility (⌘K, Esc, ARIA modal)</span>
                 </li>
               </ul>
-              <button
-                onClick={() => handleTriggerCheckout('ltd')}
-                disabled={isCheckingOut}
-                className="w-full py-2.5 px-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-zinc-950 font-bold text-xs transition-all shadow-md shadow-cyan-500/20 active:scale-95 cursor-pointer flex items-center justify-center gap-1.5"
+              <a
+                href="https://search-hub-pearl.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-2.5 px-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-zinc-950 font-bold text-xs transition-all shadow-md shadow-cyan-500/20 active:scale-95 flex items-center justify-center gap-1.5"
               >
-                <span>Get Lifetime License ($39)</span>
+                <span>Launch Live Web App (Vercel)</span>
                 <ArrowRight className="w-3.5 h-3.5" />
-              </button>
+              </a>
             </div>
 
-            {/* $19/mo Agency Tier */}
+            {/* Mobile & Federated Extension */}
             <div className="p-5 rounded-2xl border border-zinc-800 bg-[#090b12]/90 space-y-3">
               <div>
-                <h4 className="font-bold text-white text-sm">Agency / SaaS Fleet</h4>
+                <h4 className="font-bold text-white text-sm">Cross-Platform Fleet</h4>
                 <div className="mt-1 flex items-baseline gap-1">
-                  <span className="text-3xl font-extrabold text-white">$19</span>
-                  <span className="text-xs text-zinc-400">/ month</span>
+                  <span className="text-2xl font-extrabold text-white">Flutter &amp; Web</span>
                 </div>
               </div>
               <ul className="text-xs text-zinc-300 space-y-1.5 font-medium">
                 <li className="flex items-center gap-2">
                   <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                  <span>Unlimited domains &amp; client sites</span>
+                  <span>Native 120fps Dart/Flutter mobile UI</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                  <span>Zero-Results Missing Content Analytics</span>
+                  <span>Zero external crawler latency</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                  <span>Automated daily sitemap re-indexing</span>
+                  <span>Scrypt KDF secure client storage</span>
                 </li>
               </ul>
-              <button
-                onClick={() => handleTriggerCheckout('agency')}
-                disabled={isCheckingOut}
-                className="w-full py-2.5 px-3 rounded-xl border border-zinc-700 hover:bg-zinc-800 text-white font-medium text-xs transition-colors cursor-pointer flex items-center justify-center gap-1.5"
+              <a
+                href="https://github.com/santoshkumarvvv/search-hub-"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-2.5 px-3 rounded-xl border border-zinc-700 hover:bg-zinc-800 text-white font-medium text-xs transition-colors flex items-center justify-center gap-1.5"
               >
-                <span>Subscribe Agency ($19/mo)</span>
+                <span>View Engine on GitHub</span>
                 <ArrowRight className="w-3.5 h-3.5" />
-              </button>
+              </a>
             </div>
           </div>
         </div>

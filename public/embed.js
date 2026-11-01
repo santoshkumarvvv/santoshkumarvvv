@@ -384,15 +384,37 @@
       return;
     }
 
-    resultsBox.innerHTML = results.map((r, i) => `
-      <a href="${escapeHtml(r.url)}" class="se-result-item ${i === selectedIndex ? 'se-selected' : ''}" data-index="${i}">
-        <div class="se-result-title">
-          <span>${escapeHtml(r.title)}</span>
-          ${r.category ? `<span class="se-badge">${escapeHtml(r.category)}</span>` : ''}
-        </div>
-        ${r.excerpt ? `<div class="se-result-excerpt">${escapeHtml(r.excerpt)}</div>` : ''}
-      </a>
-    `).join('');
+    resultsBox.innerHTML = '';
+    results.forEach((r, i) => {
+      const a = document.createElement('a');
+      a.href = r.url;
+      a.className = `se-result-item ${i === selectedIndex ? 'se-selected' : ''}`;
+      a.setAttribute('data-index', String(i));
+
+      const titleRow = document.createElement('div');
+      titleRow.className = 'se-result-title';
+
+      const titleSpan = document.createElement('span');
+      titleSpan.textContent = r.title;
+      titleRow.appendChild(titleSpan);
+
+      if (r.category) {
+        const badgeSpan = document.createElement('span');
+        badgeSpan.className = 'se-badge';
+        badgeSpan.textContent = r.category;
+        titleRow.appendChild(badgeSpan);
+      }
+      a.appendChild(titleRow);
+
+      if (r.excerpt) {
+        const excerptDiv = document.createElement('div');
+        excerptDiv.className = 'se-result-excerpt';
+        excerptDiv.textContent = r.excerpt;
+        a.appendChild(excerptDiv);
+      }
+
+      resultsBox.appendChild(a);
+    });
   }
 
   triggerBtn.addEventListener('click', openModal);
