@@ -239,6 +239,12 @@ export default function App() {
               <div className="pt-8 mt-8 border-t border-zinc-200 dark:border-zinc-800/80 flex flex-wrap items-center justify-between gap-4">
                 <div className="flex flex-wrap items-center gap-3">
                   <a
+                    href="#architecture"
+                    className="px-5 py-2.5 text-xs font-bold text-zinc-950 bg-gradient-to-r from-cyan-400 to-cyan-300 hover:from-cyan-300 hover:to-cyan-200 rounded-lg transition-all shadow-md shadow-cyan-500/20 whitespace-nowrap shrink-0 flex items-center gap-1.5"
+                  >
+                    <span>⚡ SearchEmbed Studio (New SaaS)</span>
+                  </a>
+                  <a
                     href="#works"
                     className="px-5 py-2.5 text-xs font-medium text-white bg-blue-600 hover:bg-blue-500 rounded-lg transition-colors whitespace-nowrap shrink-0"
                   >
