@@ -343,17 +343,13 @@ export const FederatedSearchSandbox: React.FC = () => {
                 }));
 
                 // 1. Array.filter Linear Scan
-                const t0 = performance.now();
                 const q = 'algorithms';
                 sampleDocs.filter((d) => d.title.includes(q) || d.content.includes(q));
-                const linearDuration = (performance.now() - t0).toFixed(2);
 
                 // 2. Inverted Index Map Hash Lookup
                 const indexMap = new Map<string, number[]>();
                 indexMap.set('algorithms', [1, 2, 3, 4, 5]);
-                const t1 = performance.now();
                 indexMap.get('algorithms');
-                const invertedDuration = (performance.now() - t1).toFixed(3);
 
                 setQuery(`algorithms`);
                 setRecencyBias(0.18);

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Key, ShieldCheck, Zap, Copy, Check, ArrowUpRight, Activity, Terminal } from 'lucide-react';
+import { Key, Zap, Copy, Check } from 'lucide-react';
 
 interface GeneratedKey {
   rawKey: string;
