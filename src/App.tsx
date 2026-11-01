@@ -19,6 +19,7 @@ import { CommandPalette } from './components/CommandPalette';
 import { ArchitectureSimulator } from './components/ArchitectureSimulator';
 import { FederatedSearchSandbox } from './components/FederatedSearchSandbox';
 import { SaasGatewayConsole } from './components/SaasGatewayConsole';
+import { SearchEmbedStudio } from './components/SearchEmbedStudio';
 import { CaseStudyModal } from './components/CaseStudyModal';
 
 interface GitHubRepo {
@@ -164,6 +165,12 @@ export default function App() {
               className="hover:text-zinc-900 dark:hover:text-zinc-100 hover:underline underline-offset-4 transition-colors whitespace-nowrap shrink-0"
             >
               Works
+            </a>
+            <a
+              href="#architecture"
+              className="hover:text-zinc-900 dark:hover:text-zinc-100 hover:underline underline-offset-4 transition-colors whitespace-nowrap shrink-0 text-emerald-600 dark:text-emerald-400 font-semibold"
+            >
+              SearchEmbed Studio ⚡
             </a>
             <a
               href="#architecture"
@@ -423,8 +430,9 @@ export default function App() {
         {/* Interactive Micro-SaaS API Gateway & Architecture Simulator */}
         <section
           id="architecture"
-          className="max-w-7xl mx-auto px-6 py-16 border-t border-zinc-200 dark:border-zinc-800/80 space-y-10"
+          className="max-w-7xl mx-auto px-6 py-16 border-t border-zinc-200 dark:border-zinc-800/80 space-y-12"
         >
+          <SearchEmbedStudio />
           <SaasGatewayConsole />
           <FederatedSearchSandbox />
           <ArchitectureSimulator />
