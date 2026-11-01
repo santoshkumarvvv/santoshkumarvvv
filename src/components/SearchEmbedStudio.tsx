@@ -65,7 +65,7 @@ const DEFAULT_CRAWLED_PAGES: CrawledPage[] = [
 
 export const SearchEmbedStudio: React.FC = () => {
   const [siteUrl, setSiteUrl] = useState<string>('https://myindieapp.com');
-  const [accentColor, setAccentColor] = useState<string>('#06b6d4');
+  const [accentColor, setAccentColor] = useState<string>('#EF9F27');
   const [position, setPosition] = useState<'bottom-right' | 'bottom-left'>('bottom-right');
   const [isCrawling, setIsCrawling] = useState<boolean>(false);
   const [crawlProgress, setCrawlProgress] = useState<number>(100);
@@ -209,22 +209,18 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="space-y-10 relative">
-      {/* Background Cyber Glow Accent */}
-      <div className="absolute -top-24 -left-24 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-1/2 -right-24 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
-
-      {/* Cyberpunk Header Hero Box */}
-      <div className="relative overflow-hidden rounded-3xl border border-cyan-500/30 bg-[#06080e]/90 p-6 md:p-8 backdrop-blur-xl shadow-2xl shadow-cyan-950/40">
+      {/* Studio Header Box */}
+      <div className="relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 p-6 md:p-8">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
           <div className="space-y-3 max-w-2xl">
-            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-cyan-950/80 text-cyan-400 border border-cyan-500/40 shadow-xs shadow-cyan-500/20">
-              <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-zinc-900 text-[#EF9F27] border border-[#EF9F27]/40">
+              <Sparkles className="w-3.5 h-3.5 text-[#EF9F27]" />
               <span>SEARCHEMBED &amp; DOCPULSE CORE</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="text-emerald-400 font-mono">LIVE PRODUCTION NODE</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#EF9F27]" />
+              <span className="text-[#EF9F27] font-mono">LIVE PRODUCTION NODE</span>
             </div>
             
-            <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-tight">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-100 tracking-tight leading-tight">
               Instant In-Memory Search Engine &amp; Whitelabel Paywall Studio
             </h2>
             
@@ -240,7 +236,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               title="Live demo coming soon"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-sm transition-all shadow-lg shadow-cyan-500/30 active:scale-95"
+              className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#EF9F27] hover:bg-[#EF9F27]/90 text-zinc-950 font-bold text-sm transition-colors"
             >
               <ExternalLink className="w-4 h-4" />
               <span>Launch Live App (Vercel)</span>
@@ -249,28 +245,28 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               href="https://github.com/santoshkumarvvv/search-hub-"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-zinc-700 bg-zinc-900/80 hover:bg-zinc-800 text-zinc-200 text-sm font-medium transition-colors"
+              className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-[#EF9F27] bg-transparent hover:bg-[#EF9F27]/10 text-[#EF9F27] text-sm font-medium transition-colors"
             >
-              <Code className="w-4 h-4 text-cyan-400" />
+              <Code className="w-4 h-4 text-[#EF9F27]" />
               <span>Search Engine Repo</span>
             </a>
             <a
               href="https://github.com/santoshkumarvvv/search-hub-app"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-purple-500/30 bg-purple-950/30 hover:bg-purple-900/40 text-purple-200 text-sm font-medium transition-colors"
+              className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-[#EF9F27] bg-transparent hover:bg-[#EF9F27]/10 text-[#EF9F27] text-sm font-medium transition-colors"
             >
-              <Layers className="w-4 h-4 text-purple-400" />
+              <Layers className="w-4 h-4 text-[#EF9F27]" />
               <span>Flutter Mobile App</span>
             </a>
           </div>
         </div>
 
         {showPayoutSettings && (
-          <div className="mt-6 p-5 rounded-2xl bg-zinc-950/90 border border-emerald-500/30 text-xs space-y-3">
+          <div className="mt-6 p-5 rounded-2xl bg-zinc-950 border border-[#EF9F27]/40 text-xs space-y-3">
             <div className="flex items-center justify-between">
-              <span className="font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-2">
-                <CreditCard className="w-4 h-4 text-emerald-400" />
+              <span className="font-bold text-[#EF9F27] uppercase tracking-wider flex items-center gap-2">
+                <CreditCard className="w-4 h-4 text-[#EF9F27]" />
                 <span>Live Bank &amp; LemonSqueezy Direct Payout Routing</span>
               </span>
               <span className="text-zinc-400 font-mono">100% Direct Deposits</span>
@@ -286,11 +282,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 value={customCheckoutUrl}
                 onChange={(e) => setCustomCheckoutUrl(e.target.value)}
                 placeholder="https://yourstore.lemonsqueezy.com/checkout/buy/..."
-                className="w-full px-3.5 py-2 rounded-xl border border-zinc-700 bg-zinc-900 text-zinc-100 font-mono text-xs focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                className="w-full px-3.5 py-2 rounded-xl border border-zinc-700 bg-zinc-900 text-zinc-100 font-mono text-xs focus:outline-none focus:border-[#EF9F27]"
               />
               <button
                 onClick={() => setShowPayoutSettings(false)}
-                className="px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold rounded-xl shrink-0 transition-colors cursor-pointer"
+                className="px-4 py-2 bg-[#EF9F27] hover:bg-[#EF9F27]/90 text-zinc-950 font-bold rounded-xl shrink-0 transition-colors cursor-pointer"
               >
                 Save Payout Link
               </button>
@@ -299,19 +295,19 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         )}
 
         {purchasedKey && (
-          <div className="mt-6 p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/40 flex flex-col md:flex-row md:items-center justify-between gap-3 animate-fadeIn">
+          <div className="mt-6 p-4 rounded-2xl bg-[#EF9F27]/10 border border-[#EF9F27]/40 flex flex-col md:flex-row md:items-center justify-between gap-3">
             <div className="flex items-center gap-3">
-              <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0" />
+              <ShieldCheck className="w-5 h-5 text-[#EF9F27] shrink-0" />
               <div>
-                <p className="text-xs font-semibold text-emerald-400 uppercase tracking-wider">
+                <p className="text-xs font-semibold text-[#EF9F27] uppercase tracking-wider">
                   Payment Verified · Whitelabel Pro License Minted
                 </p>
-                <code className="text-sm font-mono font-bold text-white">{purchasedKey}</code>
+                <code className="text-sm font-mono font-bold text-zinc-100">{purchasedKey}</code>
               </div>
             </div>
             <button
               onClick={() => copyToClipboard(purchasedKey, 'license-key')}
-              className="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold text-xs transition-colors cursor-pointer"
+              className="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-[#EF9F27] hover:bg-[#EF9F27]/90 text-zinc-950 font-bold text-xs transition-colors cursor-pointer"
             >
               {copiedSnippet === 'license-key' ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
               <span>{copiedSnippet === 'license-key' ? 'Copied Key!' : 'Copy Key'}</span>
@@ -324,13 +320,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         {/* Left Column: Crawler & Appearance Setup (5 cols) */}
         <div className="lg:col-span-5 space-y-6">
-          <div className="p-6 rounded-2xl border border-zinc-800 bg-[#090b12]/90 backdrop-blur-md shadow-xl space-y-5">
+          <div className="p-6 rounded-2xl border border-zinc-800 bg-zinc-950 space-y-5">
             <div className="flex items-center justify-between">
-              <h3 className="font-semibold text-white text-base flex items-center gap-2">
-                <Globe className="w-4 h-4 text-cyan-400" />
+              <h3 className="font-semibold text-zinc-100 text-base flex items-center gap-2">
+                <Globe className="w-4 h-4 text-[#EF9F27]" />
                 <span>1. Sitemap Indexer &amp; Crawler</span>
               </h3>
-              <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-cyan-950 text-cyan-400 border border-cyan-800/60">
+              <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-zinc-900 text-[#EF9F27] border border-[#EF9F27]/40">
                 0ms Server Delay
               </span>
             </div>
@@ -345,12 +341,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   value={siteUrl}
                   onChange={(e) => setSiteUrl(e.target.value)}
                   placeholder="https://yourblog.com"
-                  className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-zinc-700 bg-zinc-900/90 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 font-mono"
+                  className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-zinc-700 bg-zinc-900 text-zinc-100 focus:outline-none focus:border-[#EF9F27] font-mono"
                 />
                 <button
                   onClick={handleStartCrawl}
                   disabled={isCrawling}
-                  className="px-4 py-2.5 bg-cyan-500 hover:bg-cyan-400 text-zinc-950 font-bold rounded-xl text-xs shrink-0 transition-colors cursor-pointer"
+                  className="px-4 py-2.5 bg-[#EF9F27] hover:bg-[#EF9F27]/90 text-zinc-950 font-bold rounded-xl text-xs shrink-0 transition-colors cursor-pointer"
                 >
                   {isCrawling ? 'Crawling...' : 'Crawl'}
                 </button>
@@ -358,31 +354,31 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </div>
 
             {isCrawling && (
-              <div className="space-y-1.5 animate-pulse">
-                <div className="flex justify-between text-xs text-cyan-400 font-mono">
+              <div className="space-y-1.5">
+                <div className="flex justify-between text-xs text-[#EF9F27] font-mono">
                   <span>Extracting sitemap.xml URLs...</span>
                   <span>{crawlProgress}%</span>
                 </div>
                 <div className="h-1.5 w-full bg-zinc-800 rounded-full overflow-hidden">
-                  <div className="h-full bg-gradient-to-r from-cyan-500 to-blue-500 transition-all duration-300" style={{ width: `${crawlProgress}%` }} />
+                  <div className="h-full bg-[#EF9F27] transition-all duration-300" style={{ width: `${crawlProgress}%` }} />
                 </div>
               </div>
             )}
 
             <div className="pt-3 border-t border-zinc-800 space-y-4">
               <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-300 flex items-center gap-1.5">
-                <Layers className="w-3.5 h-3.5 text-cyan-400" />
+                <Layers className="w-3.5 h-3.5 text-[#EF9F27]" />
                 <span>Widget Appearance Customization</span>
               </h4>
               
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="accent-glow-color" className="text-xs text-zinc-300 block mb-1">Accent Glow</label>
+                  <label htmlFor="accent-glow-color" className="text-xs text-zinc-300 block mb-1">Accent Color</label>
                   <div className="flex items-center gap-2">
                     <input
                       id="accent-glow-color"
                       type="color"
-                      aria-label="Accent Glow Color"
+                      aria-label="Accent Color"
                       value={accentColor}
                       onChange={(e) => setAccentColor(e.target.value)}
                       className="w-8 h-8 rounded-lg cursor-pointer border-0 bg-transparent"
@@ -398,7 +394,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     aria-label="Trigger Position"
                     value={position}
                     onChange={(e) => setPosition(e.target.value as any)}
-                    className="w-full px-2.5 py-1.5 text-xs rounded-lg border border-zinc-700 bg-zinc-900 text-white focus:outline-none focus:ring-1 focus:ring-cyan-500"
+                    className="w-full px-2.5 py-1.5 text-xs rounded-lg border border-zinc-700 bg-zinc-900 text-zinc-100 focus:outline-none focus:border-[#EF9F27]"
                   >
                     <option value="bottom-right">Bottom Right</option>
                     <option value="bottom-left">Bottom Left</option>
@@ -409,18 +405,18 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
 
           {/* Indexed Inverted Index View */}
-          <div className="p-5 rounded-2xl border border-zinc-800 bg-[#090b12]/90 backdrop-blur-md shadow-xl space-y-3">
+          <div className="p-5 rounded-2xl border border-zinc-800 bg-zinc-950 space-y-3">
             <div className="flex items-center justify-between text-xs">
               <span className="font-semibold text-zinc-200">Indexed Inverted Pages</span>
-              <span className="px-2 py-0.5 rounded-full bg-cyan-950 text-cyan-400 border border-cyan-800 font-mono font-medium">
+              <span className="px-2 py-0.5 rounded-full bg-zinc-900 text-[#EF9F27] border border-[#EF9F27]/40 font-mono font-medium">
                 {crawledPages.length} Documents Indexed
               </span>
             </div>
             <div className="space-y-2 max-h-48 overflow-y-auto pr-1">
               {crawledPages.map((page: CrawledPage, idx: number) => (
-                <div key={idx} className="p-2.5 rounded-xl bg-zinc-900/70 border border-zinc-800/80 text-xs flex items-center justify-between">
+                <div key={idx} className="p-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-xs flex items-center justify-between">
                   <div className="truncate pr-2">
-                    <p className="font-medium text-white truncate">{page.title}</p>
+                    <p className="font-medium text-zinc-100 truncate">{page.title}</p>
                     <p className="text-zinc-400 font-mono text-[10px] truncate">{page.url}</p>
                   </div>
                   <span className="shrink-0 text-[10px] px-1.5 py-0.5 rounded bg-zinc-800 text-zinc-300">
@@ -435,14 +431,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         {/* Right Column: Live Search Sandbox & Code Exporter (7 cols) */}
         <div className="lg:col-span-7 space-y-6">
           {/* Live In-Memory Search Preview */}
-          <div className="p-6 rounded-2xl border border-cyan-500/20 bg-[#090b12]/90 backdrop-blur-md shadow-xl space-y-4">
+          <div className="p-6 rounded-2xl border border-zinc-800 bg-zinc-950 space-y-4">
             <div className="flex items-center justify-between">
-              <h3 className="font-semibold text-white text-base flex items-center gap-2">
-                <Search className="w-4 h-4 text-cyan-400" />
+              <h3 className="font-semibold text-zinc-100 text-base flex items-center gap-2">
+                <Search className="w-4 h-4 text-[#EF9F27]" />
                 <span>2. Live In-Memory Search Preview</span>
               </h3>
-              <div className="flex items-center gap-2 text-xs font-mono text-emerald-400 bg-emerald-950/70 px-2.5 py-1 rounded-full border border-emerald-500/30">
-                <Zap className="w-3 h-3 text-emerald-400" />
+              <div className="flex items-center gap-2 text-xs font-mono text-[#EF9F27] bg-zinc-900 px-2.5 py-1 rounded-full border border-[#EF9F27]/40">
+                <Zap className="w-3 h-3 text-[#EF9F27]" />
                 <span>{testLatency} ms</span>
               </div>
             </div>
@@ -455,7 +451,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 value={testQuery}
                 onChange={(e) => handleTestQueryChange(e.target.value)}
                 placeholder="Try searching 'scrypt', 'guide', 'bm25', or misspell 'qickstart'..."
-                className="w-full pl-10 pr-4 py-2.5 text-sm rounded-xl border border-zinc-700 bg-zinc-900/90 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                className="w-full pl-10 pr-4 py-2.5 text-sm rounded-xl border border-zinc-700 bg-zinc-900 text-zinc-100 focus:outline-none focus:border-[#EF9F27]"
               />
             </div>
 
@@ -469,10 +465,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 filteredResults.map((res: CrawledPage, i: number) => (
                   <div
                     key={i}
-                    className="p-3.5 rounded-xl border border-zinc-800/80 hover:border-cyan-500/40 bg-zinc-900/40 hover:bg-zinc-900/80 transition-all cursor-pointer group"
+                    className="p-3.5 rounded-xl border border-zinc-800 hover:border-[#EF9F27]/50 bg-zinc-900/50 hover:bg-zinc-900 transition-colors cursor-pointer group"
                   >
                     <div className="flex items-center justify-between mb-1">
-                      <span className="text-sm font-semibold text-white group-hover:text-cyan-400 transition-colors">
+                      <span className="text-sm font-semibold text-zinc-100 group-hover:text-[#EF9F27] transition-colors">
                         {res.title}
                       </span>
                       <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-800 text-zinc-400">
@@ -487,44 +483,44 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
 
           {/* Tabbed Code Exporter */}
-          <div className="p-6 rounded-2xl border border-zinc-800 bg-[#05060a] text-zinc-100 space-y-4">
+          <div className="p-6 rounded-2xl border border-zinc-800 bg-zinc-950 text-zinc-100 space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div className="flex items-center gap-2">
-                <Terminal className="w-4 h-4 text-cyan-400" />
+                <Terminal className="w-4 h-4 text-[#EF9F27]" />
                 <span className="font-semibold text-sm">3. Production Embed Code</span>
               </div>
               
               <div className="flex items-center gap-1 bg-zinc-900 p-1 rounded-lg border border-zinc-800">
                 <button
                   onClick={() => setActiveCodeTab('html')}
-                  className={`px-2.5 py-1 text-xs rounded-md font-medium transition-colors ${activeCodeTab === 'html' ? 'bg-cyan-500 text-zinc-950 font-bold' : 'text-zinc-400 hover:text-white'}`}
+                  className={`px-2.5 py-1 text-xs rounded-md font-medium transition-colors cursor-pointer ${activeCodeTab === 'html' ? 'bg-[#EF9F27] text-zinc-950 font-bold' : 'text-zinc-300 hover:text-[#EF9F27]'}`}
                 >
                   HTML / Script
                 </button>
                 <button
                   onClick={() => setActiveCodeTab('react')}
-                  className={`px-2.5 py-1 text-xs rounded-md font-medium transition-colors ${activeCodeTab === 'react' ? 'bg-cyan-500 text-zinc-950 font-bold' : 'text-zinc-400 hover:text-white'}`}
+                  className={`px-2.5 py-1 text-xs rounded-md font-medium transition-colors cursor-pointer ${activeCodeTab === 'react' ? 'bg-[#EF9F27] text-zinc-950 font-bold' : 'text-zinc-300 hover:text-[#EF9F27]'}`}
                 >
                   Next.js / React
                 </button>
                 <button
                   onClick={() => setActiveCodeTab('astro')}
-                  className={`px-2.5 py-1 text-xs rounded-md font-medium transition-colors ${activeCodeTab === 'astro' ? 'bg-cyan-500 text-zinc-950 font-bold' : 'text-zinc-400 hover:text-white'}`}
+                  className={`px-2.5 py-1 text-xs rounded-md font-medium transition-colors cursor-pointer ${activeCodeTab === 'astro' ? 'bg-[#EF9F27] text-zinc-950 font-bold' : 'text-zinc-300 hover:text-[#EF9F27]'}`}
                 >
                   Astro / Webflow
                 </button>
               </div>
             </div>
 
-            <pre className="p-4 rounded-xl bg-zinc-950 border border-zinc-800 text-xs font-mono text-cyan-300 overflow-x-auto leading-relaxed">
+            <pre className="p-4 rounded-xl bg-zinc-900 border border-zinc-800 text-xs font-mono text-[#EF9F27] overflow-x-auto leading-relaxed">
               {getCodeSnippet()}
             </pre>
 
             <div className="flex items-center justify-between text-xs text-zinc-400 pt-1">
-              <span className="text-emerald-400 font-mono">Payload: ~14.8 KB Gzipped · Zero dependencies</span>
+              <span className="text-[#EF9F27] font-mono">Payload: ~14.8 KB Gzipped · Zero dependencies</span>
               <button
                 onClick={() => copyToClipboard(getCodeSnippet(), 'embed-script')}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-zinc-950 font-bold text-xs transition-colors cursor-pointer"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#EF9F27] hover:bg-[#EF9F27]/90 text-zinc-950 font-bold text-xs transition-colors cursor-pointer"
               >
                 {copiedSnippet === 'embed-script' ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
                 <span>{copiedSnippet === 'embed-script' ? 'Copied Snippet!' : 'Copy Snippet'}</span>
@@ -535,27 +531,27 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           {/* Open Source Engine & Cross-Platform Fleet Architecture */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {/* Open Core Production Engine */}
-            <div className="p-5 rounded-2xl border-2 border-cyan-500/50 bg-gradient-to-b from-cyan-950/30 to-[#070a14] space-y-3 relative overflow-hidden shadow-lg shadow-cyan-950/30">
-              <div className="absolute top-3 right-3 px-2 py-0.5 rounded-full bg-cyan-400 text-zinc-950 text-[10px] font-extrabold uppercase tracking-wider">
+            <div className="p-5 rounded-2xl border border-[#EF9F27]/50 bg-zinc-950 space-y-3 relative overflow-hidden">
+              <div className="absolute top-3 right-3 px-2 py-0.5 rounded-full bg-[#EF9F27] text-zinc-950 text-[10px] font-extrabold uppercase tracking-wider">
                 100% OPEN ARCHITECTURE
               </div>
               <div>
-                <h4 className="font-bold text-white text-sm">SearchHub Core Engine</h4>
+                <h4 className="font-bold text-zinc-100 text-sm">SearchHub Core Engine</h4>
                 <div className="mt-1 flex items-baseline gap-1">
-                  <span className="text-2xl font-extrabold text-white">Free &amp; Open Source</span>
+                  <span className="text-2xl font-extrabold text-zinc-100">Free &amp; Open Source</span>
                 </div>
               </div>
               <ul className="text-xs text-zinc-300 space-y-1.5 font-medium">
                 <li className="flex items-center gap-2">
-                  <Check className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                  <Check className="w-3.5 h-3.5 text-[#EF9F27] shrink-0" />
                   <span>Low-latency in-memory BM25 ranking</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                  <Check className="w-3.5 h-3.5 text-[#EF9F27] shrink-0" />
                   <span>Bounded Damerau-Levenshtein typo correction (len &ge; 4)</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                  <Check className="w-3.5 h-3.5 text-[#EF9F27] shrink-0" />
                   <span>Full keyboard accessibility (⌘K, Esc, ARIA modal)</span>
                 </li>
               </ul>
@@ -564,7 +560,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 title="Live demo coming soon"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-2.5 px-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-zinc-950 font-bold text-xs transition-all shadow-md shadow-cyan-500/20 active:scale-95 flex items-center justify-center gap-1.5"
+                className="w-full py-2.5 px-3 rounded-xl bg-[#EF9F27] hover:bg-[#EF9F27]/90 text-zinc-950 font-bold text-xs transition-colors flex items-center justify-center gap-1.5"
               >
                 <span>Launch Live Web App (Vercel)</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -572,24 +568,24 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </div>
 
             {/* Mobile & Federated Extension */}
-            <div className="p-5 rounded-2xl border border-zinc-800 bg-[#090b12]/90 space-y-3">
+            <div className="p-5 rounded-2xl border border-zinc-800 bg-zinc-950 space-y-3">
               <div>
-                <h4 className="font-bold text-white text-sm">Cross-Platform Fleet</h4>
+                <h4 className="font-bold text-zinc-100 text-sm">Cross-Platform Fleet</h4>
                 <div className="mt-1 flex items-baseline gap-1">
-                  <span className="text-2xl font-extrabold text-white">Flutter &amp; Web</span>
+                  <span className="text-2xl font-extrabold text-zinc-100">Flutter &amp; Web</span>
                 </div>
               </div>
               <ul className="text-xs text-zinc-300 space-y-1.5 font-medium">
                 <li className="flex items-center gap-2">
-                  <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                  <Check className="w-3.5 h-3.5 text-[#EF9F27] shrink-0" />
                   <span>Native 120fps Dart/Flutter mobile UI</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                  <Check className="w-3.5 h-3.5 text-[#EF9F27] shrink-0" />
                   <span>Zero external crawler latency</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                  <Check className="w-3.5 h-3.5 text-[#EF9F27] shrink-0" />
                   <span>Scrypt KDF secure client storage</span>
                 </li>
               </ul>
@@ -597,7 +593,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 href="https://github.com/santoshkumarvvv/search-hub-"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-2.5 px-3 rounded-xl border border-zinc-700 hover:bg-zinc-800 text-white font-medium text-xs transition-colors flex items-center justify-center gap-1.5"
+                className="w-full py-2.5 px-3 rounded-xl border border-[#EF9F27] bg-transparent hover:bg-[#EF9F27]/10 text-[#EF9F27] font-medium text-xs transition-colors flex items-center justify-center gap-1.5"
               >
                 <span>View Engine on GitHub</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -609,3 +605,4 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     </div>
   );
 };
+

@@ -20,7 +20,7 @@
   })();
 
   const siteKey = currentScript?.getAttribute('data-site-key') || 'sh_live_demo';
-  const customAccent = currentScript?.getAttribute('data-accent') || '#06b6d4';
+  const customAccent = currentScript?.getAttribute('data-accent') || '#EF9F27';
   const placeholderText = currentScript?.getAttribute('data-placeholder') || 'Search real projects, architectures, and docs...';
   const position = currentScript?.getAttribute('data-position') || 'bottom-right';
 
@@ -105,7 +105,7 @@
         matrix[i][j] = Math.min(
           matrix[i - 1][j] + 1,       // deletion
           matrix[i][j - 1] + 1,       // insertion
-          matrix[i][j - 1] + cost // substitution
+          matrix[i - 1][j - 1] + cost // substitution
         );
         if (i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) {
           matrix[i][j] = Math.min(matrix[i][j], matrix[i - 2][j - 2] + cost); // transposition
@@ -167,9 +167,8 @@
       gap: 8px;
       padding: 10px 16px;
       background: #09090b;
-      color: #fafafa;
-      border: 1px solid rgba(6, 182, 212, 0.35);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(6, 182, 212, 0.15);
+      color: #f4f4f5;
+      border: 1px solid #EF9F27;
       border-radius: 9999px;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       font-size: 13px;
@@ -179,8 +178,7 @@
     }
     #se-trigger-btn:hover {
       transform: translateY(-2px);
-      border-color: #06b6d4;
-      box-shadow: 0 6px 24px rgba(6, 182, 212, 0.3);
+      background: #18181b;
     }
     #se-trigger-btn kbd {
       background: #18181b;
@@ -188,13 +186,13 @@
       border-radius: 4px;
       padding: 2px 6px;
       font-size: 11px;
-      color: #a1a1aa;
+      color: #EF9F27;
     }
     #se-modal-backdrop {
       position: fixed;
       inset: 0;
       z-index: 999999;
-      background: rgba(0, 0, 0, 0.75);
+      background: rgba(9, 9, 11, 0.8);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       display: flex;
@@ -212,10 +210,9 @@
     #se-modal-container {
       width: 100%;
       max-width: 640px;
-      background: #090a12;
-      border: 1px solid rgba(6, 182, 212, 0.3);
+      background: #09090b;
+      border: 1px solid #27272a;
       border-radius: 20px;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 40px rgba(6, 182, 212, 0.15);
       overflow: hidden;
       display: flex;
       flex-direction: column;
@@ -226,14 +223,14 @@
       align-items: center;
       gap: 12px;
       padding: 18px 20px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      background: #0d0f1a;
+      border-bottom: 1px solid #27272a;
+      background: #18181b;
     }
     #se-search-input {
       flex: 1;
       background: transparent;
       border: none;
-      color: #ffffff;
+      color: #f4f4f5;
       font-size: 15px;
       outline: none;
     }
@@ -255,13 +252,13 @@
       cursor: pointer;
     }
     .se-result-item:hover, .se-result-item.se-selected {
-      background: rgba(6, 182, 212, 0.12);
-      outline: 1px solid rgba(6, 182, 212, 0.3);
+      background: rgba(239, 159, 39, 0.12);
+      outline: 1px solid rgba(239, 159, 39, 0.4);
     }
     .se-result-title {
       font-size: 14px;
       font-weight: 600;
-      color: #ffffff;
+      color: #f4f4f5;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -278,21 +275,21 @@
       padding: 2px 6px;
       border-radius: 4px;
       background: #18181b;
-      color: #06b6d4;
-      border: 1px solid rgba(6, 182, 212, 0.25);
+      color: #EF9F27;
+      border: 1px solid rgba(239, 159, 39, 0.35);
     }
     #se-footer {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 12px 18px;
-      background: #090a12;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      background: #09090b;
+      border-top: 1px solid #27272a;
       font-size: 11px;
       color: #71717a;
     }
     #se-footer a {
-      color: #06b6d4;
+      color: #EF9F27;
       text-decoration: none;
       font-weight: 600;
     }

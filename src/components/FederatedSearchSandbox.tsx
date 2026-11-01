@@ -156,7 +156,7 @@ export const FederatedSearchSandbox: React.FC = () => {
   }, [query, categoryFilter, recencyBias]);
 
   return (
-    <div className="bg-white dark:bg-[#0B0C10] border border-zinc-200 dark:border-zinc-800/90 rounded-2xl p-6 sm:p-8">
+    <div className="bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 sm:p-8">
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-zinc-200 dark:border-zinc-800">
         <div>
           <p className="text-xs font-mono text-zinc-500 dark:text-zinc-400">
@@ -166,7 +166,7 @@ export const FederatedSearchSandbox: React.FC = () => {
             Federated Lexical &amp; Recency Query Router
           </h3>
           <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-1">
-            Test the real-time ranking engine powering <code className="font-mono text-xs text-blue-600 dark:text-blue-400">search-hub-</code> and <code className="font-mono text-xs text-blue-600 dark:text-blue-400">search-hub-app</code> across all four repositories.
+            Test the real-time ranking engine powering <code className="font-mono text-xs text-[#EF9F27]">search-hub-</code> and <code className="font-mono text-xs text-[#EF9F27]">search-hub-app</code> across all four repositories.
           </p>
         </div>
 
@@ -184,8 +184,8 @@ export const FederatedSearchSandbox: React.FC = () => {
               onClick={() => setCategoryFilter(tab.id)}
               className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
                 categoryFilter === tab.id
-                  ? 'bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 shadow-xs'
-                  : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200'
+                  ? 'bg-[#EF9F27] text-zinc-950 font-semibold'
+                  : 'text-zinc-600 dark:text-zinc-300 hover:text-[#EF9F27]'
               }`}
             >
               {tab.label}
@@ -204,13 +204,13 @@ export const FederatedSearchSandbox: React.FC = () => {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Query across modules (e.g., 'edge', 'ranker', 'clean architecture', 'yaml')..."
-            className="w-full pl-11 pr-20 py-3 text-sm bg-zinc-50 dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 rounded-xl text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none focus:border-blue-600"
+            className="w-full pl-11 pr-20 py-3 text-sm bg-zinc-50 dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 rounded-xl text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none focus:border-[#EF9F27]"
           />
           {query && (
             <button
               type="button"
               onClick={() => setQuery('')}
-              className="absolute right-3 top-1/2 -translate-y-1/2 px-2 py-1 text-xs font-mono text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 cursor-pointer"
+              className="absolute right-3 top-1/2 -translate-y-1/2 px-2 py-1 text-xs font-mono text-zinc-400 hover:text-[#EF9F27] cursor-pointer"
             >
               Clear
             </button>
@@ -223,7 +223,7 @@ export const FederatedSearchSandbox: React.FC = () => {
               <label htmlFor="recency-weight-slider" className="text-zinc-500">
                 LEXICAL / RECENCY RATIO
               </label>
-              <span className="text-blue-600 dark:text-blue-400 tabular-nums">
+              <span className="text-[#EF9F27] tabular-nums">
                 {Math.round((1 - recencyBias) * 100)}% / {Math.round(recencyBias * 100)}%
               </span>
             </div>
@@ -235,7 +235,7 @@ export const FederatedSearchSandbox: React.FC = () => {
               step="0.04"
               value={recencyBias}
               onChange={(e) => setRecencyBias(parseFloat(e.target.value))}
-              className="w-full accent-blue-600 cursor-pointer"
+              className="w-full accent-[#EF9F27] cursor-pointer"
             />
           </div>
 
@@ -246,7 +246,7 @@ export const FederatedSearchSandbox: React.FC = () => {
               setCategoryFilter('all');
               setRecencyBias(0.22);
             }}
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-medium text-zinc-700 dark:text-zinc-300 bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-lg transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-medium text-[#EF9F27] bg-transparent border border-[#EF9F27] hover:bg-[#EF9F27]/10 rounded-lg transition-colors whitespace-nowrap shrink-0 cursor-pointer"
           >
             <RotateCcw className="w-3.5 h-3.5" />
             <span>Reset</span>
@@ -268,12 +268,12 @@ export const FederatedSearchSandbox: React.FC = () => {
             {rankedResults.map((hit, idx) => (
               <div
                 key={hit.id}
-                className="p-5 rounded-xl bg-zinc-50/80 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800/90 hover:border-blue-600/50 dark:hover:border-blue-500/50 transition-colors flex flex-col justify-between gap-4"
+                className="p-5 rounded-xl bg-zinc-50/80 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800/90 hover:border-[#EF9F27]/60 transition-colors flex flex-col justify-between gap-4"
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 text-xs font-mono text-zinc-500">
                     <div className="flex items-center gap-1.5 truncate">
-                      <span className="text-blue-600 dark:text-blue-400 font-semibold tabular-nums">
+                      <span className="text-[#EF9F27] font-semibold tabular-nums">
                         #{idx + 1}
                       </span>
                       <span aria-hidden="true">·</span>
@@ -281,7 +281,7 @@ export const FederatedSearchSandbox: React.FC = () => {
                       <span aria-hidden="true">·</span>
                       <span className="truncate">{hit.path}</span>
                     </div>
-                    <span className="text-blue-600 dark:text-blue-400 font-semibold tabular-nums shrink-0">
+                    <span className="text-[#EF9F27] font-semibold tabular-nums shrink-0">
                       score: {hit.compositeScore.toFixed(3)}
                     </span>
                   </div>
@@ -303,7 +303,7 @@ export const FederatedSearchSandbox: React.FC = () => {
                     href={hit.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-blue-600 dark:text-blue-400 hover:underline"
+                    className="inline-flex items-center gap-1 text-[#EF9F27] hover:underline"
                   >
                     <span>Inspect Source</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
@@ -328,7 +328,7 @@ export const FederatedSearchSandbox: React.FC = () => {
         <div className="mt-8 pt-6 border-t border-zinc-200 dark:border-zinc-800/80">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-xl bg-zinc-950 text-zinc-100 border border-zinc-800">
             <div>
-              <p className="text-xs font-mono text-blue-400">BENCHMARK LAB · O(N) LINEAR VS O(K) INVERTED INDEX</p>
+              <p className="text-xs font-mono text-[#EF9F27]">BENCHMARK LAB · O(N) LINEAR VS O(K) INVERTED INDEX</p>
               <p className="text-sm font-semibold text-zinc-200 mt-0.5">
                 Stress-test algorithm throughput over 10,000 synthetic documents
               </p>
@@ -343,11 +343,9 @@ export const FederatedSearchSandbox: React.FC = () => {
                   content: `Document body containing terms typescript nextjs react algorithms edge computing ${i}`,
                 }));
 
-                // 1. Array.filter Linear Scan
                 const q = 'algorithms';
                 sampleDocs.filter((d) => d.title.includes(q) || d.content.includes(q));
 
-                // 2. Inverted Index Map Hash Lookup
                 const indexMap = new Map<string, number[]>();
                 indexMap.set('algorithms', [1, 2, 3, 4, 5]);
                 indexMap.get('algorithms');
@@ -355,7 +353,7 @@ export const FederatedSearchSandbox: React.FC = () => {
                 setQuery(`algorithms`);
                 setRecencyBias(0.18);
               }}
-              className="inline-flex items-center gap-2 px-4 py-2 text-xs font-mono font-medium text-white bg-blue-600 hover:bg-blue-500 rounded-lg transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+              className="inline-flex items-center gap-2 px-4 py-2 text-xs font-mono font-bold text-zinc-950 bg-[#EF9F27] hover:bg-[#EF9F27]/90 rounded-lg transition-colors whitespace-nowrap shrink-0 cursor-pointer"
             >
               <Sparkles className="w-3.5 h-3.5" />
               <span>Simulate 10,000 Shard Query</span>
@@ -366,3 +364,4 @@ export const FederatedSearchSandbox: React.FC = () => {
     </div>
   );
 };
+

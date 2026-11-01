@@ -31,14 +31,14 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose
 
   return (
     <div
-      className="fixed inset-0 z-50 bg-black/80 backdrop-blur-xs flex items-center justify-center p-4 sm:p-6 overflow-y-auto"
+      className="fixed inset-0 z-50 bg-zinc-950/85 flex items-center justify-center p-4 sm:p-6 overflow-y-auto"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-project-title"
     >
       <div
-        className="w-full max-w-4xl bg-white dark:bg-[#0B0C10] border border-zinc-200 dark:border-zinc-800 rounded-2xl shadow-2xl overflow-hidden my-auto max-h-[90vh] flex flex-col"
+        className="w-full max-w-4xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-2xl overflow-hidden my-auto max-h-[90vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Top bar */}
@@ -52,7 +52,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose
           </div>
           <button
             onClick={onClose}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono text-zinc-700 dark:text-zinc-300 bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-lg transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono text-[#EF9F27] bg-transparent border border-[#EF9F27] hover:bg-[#EF9F27]/10 rounded-lg transition-colors cursor-pointer"
             aria-label="Close case study modal"
           >
             <span>ESC</span>
@@ -90,7 +90,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose
                 <span className="text-2xl font-bold font-mono text-zinc-900 dark:text-zinc-100 mt-1 block tabular-nums">
                   {metric.value}
                 </span>
-                <span className="text-xs text-blue-600 dark:text-blue-400 mt-1 block">
+                <span className="text-xs text-[#EF9F27] mt-1 block">
                   {metric.delta}
                 </span>
               </div>
@@ -123,11 +123,11 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose
               <span>{project.codeSample.filename}</span>
               <button
                 onClick={handleCopyCode}
-                className="inline-flex items-center gap-1.5 text-zinc-300 hover:text-white transition-colors cursor-pointer"
+                className="inline-flex items-center gap-1.5 text-zinc-300 hover:text-[#EF9F27] transition-colors cursor-pointer"
               >
                 {copied ? (
                   <>
-                    <Check className="w-3.5 h-3.5 text-blue-400" />
+                    <Check className="w-3.5 h-3.5 text-[#EF9F27]" />
                     <span>Copied</span>
                   </>
                 ) : (
@@ -152,7 +152,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose
               href={project.repoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-medium text-white bg-blue-600 hover:bg-blue-500 rounded-lg transition-colors whitespace-nowrap shrink-0"
+              className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold text-zinc-950 bg-[#EF9F27] hover:bg-[#EF9F27]/90 rounded-lg transition-colors whitespace-nowrap shrink-0"
             >
               <span>Inspect GitHub Repository</span>
               <ArrowUpRight className="w-4 h-4" />
@@ -163,3 +163,4 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose
     </div>
   );
 };
+

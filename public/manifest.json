@@ -4,8 +4,8 @@
   "description": "Portfolio, architecture blueprints, and real-time in-memory search systems by Santosh Kumar (@santoshkumarvvv).",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#050505",
-  "theme_color": "#050505",
+  "background_color": "#09090b",
+  "theme_color": "#09090b",
   "icons": [
     {
       "src": "/favicon.svg",

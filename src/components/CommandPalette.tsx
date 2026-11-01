@@ -48,18 +48,18 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 bg-black/70 backdrop-blur-xs flex items-start justify-center pt-20 px-4"
+      className="fixed inset-0 z-50 bg-zinc-950/80 flex items-start justify-center pt-20 px-4"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-label="Command Menu"
     >
       <div
-        className="w-full max-w-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl shadow-2xl overflow-hidden"
+        className="w-full max-w-2xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-2xl overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center gap-3 px-5 py-4 border-b border-zinc-200 dark:border-zinc-800">
-          <Search className="w-4 h-4 text-zinc-400 shrink-0" />
+          <Search className="w-4 h-4 text-[#EF9F27] shrink-0" />
           <input
             type="text"
             aria-label="Search command menu"
@@ -71,7 +71,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
           />
           <button
             onClick={onClose}
-            className="p-1.5 text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 rounded-lg transition-colors"
+            className="p-1.5 text-zinc-400 hover:text-[#EF9F27] rounded-lg transition-colors"
             aria-label="Close command menu"
           >
             <X className="w-4 h-4" />
@@ -91,10 +91,10 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
                     onSelectProject(project);
                     onClose();
                   }}
-                  className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-left hover:bg-zinc-100 dark:hover:bg-zinc-800/80 transition-colors group"
+                  className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-left hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors group"
                 >
                   <div className="flex items-center gap-3 min-w-0">
-                    <Code2 className="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0" />
+                    <Code2 className="w-4 h-4 text-[#EF9F27] shrink-0" />
                     <div className="truncate">
                       <p className="text-sm font-medium text-zinc-900 dark:text-zinc-100 truncate">
                         {project.title}
@@ -104,7 +104,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
                       </p>
                     </div>
                   </div>
-                  <span className="text-xs font-mono text-zinc-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 shrink-0 ml-3">
+                  <span className="text-xs font-mono text-zinc-400 group-hover:text-[#EF9F27] shrink-0 ml-3">
                     Inspect Spec →
                   </span>
                 </button>
@@ -125,10 +125,10 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
                   onToggleTheme();
                   onClose();
                 }}
-                className="flex items-center justify-between px-3 py-2.5 rounded-xl text-left hover:bg-zinc-100 dark:hover:bg-zinc-800/80 transition-colors"
+                className="flex items-center justify-between px-3 py-2.5 rounded-xl text-left hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors"
               >
                 <span className="flex items-center gap-2.5 text-sm font-medium text-zinc-800 dark:text-zinc-200">
-                  {isDark ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-blue-600" />}
+                  {isDark ? <Sun className="w-4 h-4 text-[#EF9F27]" /> : <Moon className="w-4 h-4 text-[#EF9F27]" />}
                   Switch to {isDark ? 'Light' : 'Dark'} Surface
                 </span>
               </button>
@@ -137,10 +137,10 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
                 href="https://github.com/santoshkumarvvv"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between px-3 py-2.5 rounded-xl text-left hover:bg-zinc-100 dark:hover:bg-zinc-800/80 transition-colors"
+                className="flex items-center justify-between px-3 py-2.5 rounded-xl text-left hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors"
               >
                 <span className="flex items-center gap-2.5 text-sm font-medium text-zinc-800 dark:text-zinc-200">
-                  <FolderGit2 className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                  <FolderGit2 className="w-4 h-4 text-[#EF9F27]" />
                   Open GitHub (@santoshkumarvvv)
                 </span>
                 <ArrowUpRight className="w-4 h-4 text-zinc-400" />
@@ -152,3 +152,4 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
     </div>
   );
 };
+

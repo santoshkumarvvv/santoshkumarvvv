@@ -85,7 +85,7 @@ export const ArchitectureSimulator: React.FC = () => {
   };
 
   return (
-    <div className="bg-white dark:bg-[#0B0C10] border border-zinc-200 dark:border-zinc-800/90 rounded-2xl p-6 sm:p-8">
+    <div className="bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 sm:p-8">
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-zinc-200 dark:border-zinc-800">
         <div>
           <p className="text-xs font-mono text-zinc-500 dark:text-zinc-400">
@@ -105,10 +105,10 @@ export const ArchitectureSimulator: React.FC = () => {
             <button
               key={preset.id}
               onClick={() => setSelectedPresetId(preset.id)}
-              className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors whitespace-nowrap shrink-0 ${
+              className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
                 selectedPresetId === preset.id
-                  ? 'bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 shadow-xs'
-                  : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200'
+                  ? 'bg-[#EF9F27] text-zinc-950 font-semibold'
+                  : 'text-zinc-600 dark:text-zinc-300 hover:text-[#EF9F27]'
               }`}
             >
               {preset.name}
@@ -129,7 +129,7 @@ export const ArchitectureSimulator: React.FC = () => {
               <label htmlFor="concurrency-slider" className="text-zinc-600 dark:text-zinc-400">
                 TRAFFIC MULTIPLIER ({concurrencyMultiplier.toFixed(1)}x LOAD)
               </label>
-              <span className="text-blue-600 dark:text-blue-400 tabular-nums">
+              <span className="text-[#EF9F27] tabular-nums">
                 {computedRps.toLocaleString()} req/sec
               </span>
             </div>
@@ -141,7 +141,7 @@ export const ArchitectureSimulator: React.FC = () => {
               step="0.5"
               value={concurrencyMultiplier}
               onChange={(e) => setConcurrencyMultiplier(parseFloat(e.target.value))}
-              className="w-full accent-blue-600 cursor-pointer"
+              className="w-full accent-[#EF9F27] cursor-pointer"
             />
           </div>
 
@@ -152,10 +152,10 @@ export const ArchitectureSimulator: React.FC = () => {
             <button
               type="button"
               onClick={() => setCacheEnabled(!cacheEnabled)}
-              className={`px-3.5 py-1.5 text-xs font-mono rounded-lg border transition-colors whitespace-nowrap shrink-0 ${
+              className={`px-3.5 py-1.5 text-xs font-mono rounded-lg border transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
                 cacheEnabled
-                  ? 'bg-blue-600 text-white border-blue-600'
-                  : 'bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 border-zinc-300 dark:border-zinc-700'
+                  ? 'bg-[#EF9F27] text-zinc-950 border-[#EF9F27] font-semibold'
+                  : 'bg-transparent text-[#EF9F27] border-[#EF9F27]'
               }`}
             >
               {cacheEnabled ? 'ENABLED (EDGE HIT)' : 'BYPASSED (ORIGIN)'}
@@ -166,7 +166,7 @@ export const ArchitectureSimulator: React.FC = () => {
             <button
               type="button"
               onClick={handleRunStressTest}
-              className="inline-flex items-center gap-2 px-4 py-2 text-xs font-medium text-white bg-blue-600 hover:bg-blue-500 rounded-lg transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+              className="inline-flex items-center gap-2 px-4 py-2 text-xs font-bold text-zinc-950 bg-[#EF9F27] hover:bg-[#EF9F27]/90 rounded-lg transition-colors whitespace-nowrap shrink-0 cursor-pointer"
             >
               <Play className="w-3.5 h-3.5" />
               Run Benchmark Probe
@@ -174,7 +174,7 @@ export const ArchitectureSimulator: React.FC = () => {
             <button
               type="button"
               onClick={handleReset}
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-medium text-zinc-700 dark:text-zinc-300 bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-lg transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-medium text-[#EF9F27] bg-transparent border border-[#EF9F27] hover:bg-[#EF9F27]/10 rounded-lg transition-colors whitespace-nowrap shrink-0 cursor-pointer"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               Reset
@@ -206,7 +206,7 @@ export const ArchitectureSimulator: React.FC = () => {
 
           <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-900/70 border border-zinc-200 dark:border-zinc-800">
             <span className="text-xs font-mono text-zinc-500 block">CACHE HIT RATIO</span>
-            <span className="text-2xl font-bold font-mono text-blue-600 dark:text-blue-400 mt-1 block tabular-nums">
+            <span className="text-2xl font-bold font-mono text-[#EF9F27] mt-1 block tabular-nums">
               {computedHitRate}%
             </span>
             <span className="text-xs text-zinc-500 mt-1 block">Multi-region PoP</span>
@@ -226,3 +226,4 @@ export const ArchitectureSimulator: React.FC = () => {
     </div>
   );
 };
+
