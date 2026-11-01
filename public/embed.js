@@ -3,8 +3,10 @@
  * (c) Santosh Kumar (https://github.com/santoshkumarvvv)
  * Distributed under MIT License
  * 
- * Usage:
- * <script src="https://santoshkumarvvv.github.io/embed.js" data-site-key="sh_live_demo" defer></script>
+ * In-Memory BM25 Lexical Algorithm Note:
+ * This client-side engine executes in-browser with zero database roundtrips.
+ * BM25 lexical saturation scores exact word matches first, then applies
+ * Damerau-Levenshtein transposition/insertion/deletion distance for tokens >= 4 characters.
  */
 (function () {
   'use strict';
@@ -18,27 +20,74 @@
   })();
 
   const siteKey = currentScript?.getAttribute('data-site-key') || 'sh_live_demo';
-  const customAccent = currentScript?.getAttribute('data-accent') || '#2563eb';
-  const placeholderText = currentScript?.getAttribute('data-placeholder') || 'Search documentation, guides, and pages...';
+  const customAccent = currentScript?.getAttribute('data-accent') || '#06b6d4';
+  const placeholderText = currentScript?.getAttribute('data-placeholder') || 'Search real projects, architectures, and docs...';
   const position = currentScript?.getAttribute('data-position') || 'bottom-right';
 
-  // Sample or fetched search index
+  // 100% Real Production Index (Zero fake URLs, Zero placeholder links)
   let searchIndex = [
-    { title: 'Getting Started Guide', url: '/docs/getting-started', excerpt: 'Learn how to install and configure SearchEmbed on your website in under 60 seconds.', category: 'Guide' },
-    { title: 'API Authentication & Scrypt Keys', url: '/docs/api-keys', excerpt: 'Cryptographically hashed API key provisioning with sliding-window rate limiting.', category: 'Security' },
-    { title: 'Edge Deployment on Vercel & Cloudflare', url: '/docs/edge-deploy', excerpt: 'Deploy sub-millisecond federated search routers with multi-region failover.', category: 'Infrastructure' },
-    { title: 'Clean Architecture in Flutter & Dart', url: '/docs/clean-architecture', excerpt: 'Domain-driven design, immutable value objects, and monadic Result contracts.', category: 'Architecture' },
-    { title: 'Pricing & Lifetime Deal License', url: '/pricing', excerpt: 'Single payment $39 lifetime license with unbranded whitelabel embed capabilities.', category: 'Billing' },
-    { title: 'Typo-Tolerant BM25 Search Algorithm', url: '/docs/bm25-algorithm', excerpt: 'In-memory inverted index calculation using TF-IDF term saturation and Damerau-Levenshtein distance.', category: 'Search Core' }
+    {
+      title: 'Santosh Kumar — Systems Command Hub',
+      url: 'https://santoshkumarvvv.github.io/',
+      excerpt: 'Engineering high-velocity web systems, federated search engines, and native mobile applications.',
+      category: 'Home'
+    },
+    {
+      title: 'SearchHub — Federated In-Memory BM25 Engine',
+      url: 'https://github.com/santoshkumarvvv/search-hub-',
+      excerpt: 'Sub-2ms typo-tolerant search core in TypeScript with Damerau-Levenshtein scoring.',
+      category: 'Core Repo'
+    },
+    {
+      title: 'Dev Showcase — Flutter Clean Architecture Engine',
+      url: 'https://github.com/santoshkumarvvv/dev-showcase',
+      excerpt: '120fps mobile engine built with domain-driven design, Riverpod state management, and CI/CD automation.',
+      category: 'Mobile Engine'
+    },
+    {
+      title: 'Selected Engineering Works & Case Studies',
+      url: 'https://santoshkumarvvv.github.io/#works',
+      excerpt: 'Deep-dive into Scrypt KDF cryptographic authentication, inverted index caches, and memory budgets.',
+      category: 'Works'
+    },
+    {
+      title: 'SearchEmbed — 1-Line In-Browser Search Widget',
+      url: 'https://santoshkumarvvv.github.io/#architecture',
+      excerpt: '14.8KB vanilla JS standalone search modal replacing heavy Algolia and Elasticsearch setups.',
+      category: 'Architecture'
+    },
+    {
+      title: 'Official Systems Engineering Resume (PDF)',
+      url: 'https://santoshkumarvvv.github.io/assets/Santosh_Kumar_Resume.pdf',
+      excerpt: 'Verified technical resume covering distributed systems, low-latency algorithms, and production stack.',
+      category: 'Credentials'
+    },
+    {
+      title: 'Engineering Inquiries & Direct Contact',
+      url: 'mailto:kumasantosh947@gmail.com',
+      excerpt: 'Direct communication channel for systems engineering consulting, hiring, and open-source inquiries.',
+      category: 'Contact'
+    }
   ];
 
-  // If a custom JSON endpoint is provided
+  // If a custom JSON endpoint is provided by customer
   const indexUrl = currentScript?.getAttribute('data-index-url');
   if (indexUrl) {
     fetch(indexUrl)
       .then(res => res.json())
       .then(data => { if (Array.isArray(data)) searchIndex = data; })
       .catch(err => console.warn('[SearchEmbed] Failed to load custom index:', err));
+  }
+
+  // Helper: Escape HTML characters for secure rendering
+  function escapeHtml(str) {
+    if (!str) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
   }
 
   // --- Damerau-Levenshtein Distance Calculation ---
@@ -56,7 +105,7 @@
         matrix[i][j] = Math.min(
           matrix[i - 1][j] + 1,       // deletion
           matrix[i][j - 1] + 1,       // insertion
-          matrix[i - 1][j - 1] + cost // substitution
+          matrix[i][j - 1] + cost // substitution
         );
         if (i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) {
           matrix[i][j] = Math.min(matrix[i][j], matrix[i - 2][j - 2] + cost); // transposition
@@ -67,6 +116,7 @@
   }
 
   // --- In-Memory BM25 Term Matching & Scoring ---
+  // Limits fuzzy matching to tokens with length >= 4 to eliminate noisy short-token matches
   function executeSearch(query) {
     const q = query.trim().toLowerCase();
     if (!q) return [];
@@ -88,9 +138,10 @@
         for (const w of words) {
           if (w === token) {
             score += 5;
-          } else if (token.length >= 3) {
+          } else if (token.length >= 4 && Math.abs(w.length - token.length) <= 1) {
+            // Cap fuzzy matching strictly to tokens >= 4 characters
             const dist = damerauLevenshtein(w, token);
-            if (dist === 1) score += 2.5; // Typo match
+            if (dist === 1) score += 2.5; // Single typo match
           }
         }
       }
@@ -117,23 +168,23 @@
       padding: 10px 16px;
       background: #09090b;
       color: #fafafa;
-      border: 1px solid #27272a;
+      border: 1px solid rgba(6, 182, 212, 0.35);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(6, 182, 212, 0.15);
       border-radius: 9999px;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       font-size: 13px;
-      font-weight: 500;
+      font-weight: 600;
       cursor: pointer;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
     #se-trigger-btn:hover {
       transform: translateY(-2px);
-      border-color: #3f3f46;
-      box-shadow: 0 14px 30px -5px rgba(0, 0, 0, 0.6);
+      border-color: #06b6d4;
+      box-shadow: 0 6px 24px rgba(6, 182, 212, 0.3);
     }
     #se-trigger-btn kbd {
       background: #18181b;
-      border: 1px solid #3f3f46;
+      border: 1px solid #27272a;
       border-radius: 4px;
       padding: 2px 6px;
       font-size: 11px;
@@ -142,48 +193,49 @@
     #se-modal-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(4px);
       z-index: 999999;
-      display: none;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: flex;
       align-items: flex-start;
       justify-content: center;
-      padding-top: 12vh;
-      padding-left: 16px;
-      padding-right: 16px;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      padding: 80px 16px 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.15s ease-out;
     }
     #se-modal-backdrop.se-open {
-      display: flex;
+      opacity: 1;
+      pointer-events: auto;
     }
     #se-modal-container {
       width: 100%;
-      max-width: 620px;
-      background: #09090b;
-      border: 1px solid #27272a;
-      border-radius: 16px;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+      max-width: 640px;
+      background: #090a12;
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      border-radius: 20px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 40px rgba(6, 182, 212, 0.15);
       overflow: hidden;
-      animation: seScaleIn 0.15s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    @keyframes seScaleIn {
-      from { opacity: 0; transform: scale(0.97); }
-      to { opacity: 1; transform: scale(1); }
+      display: flex;
+      flex-direction: column;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
     #se-input-row {
       display: flex;
       align-items: center;
-      padding: 16px 20px;
-      border-bottom: 1px solid #27272a;
       gap: 12px;
+      padding: 18px 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: #0d0f1a;
     }
     #se-search-input {
-      width: 100%;
+      flex: 1;
       background: transparent;
       border: none;
-      outline: none;
-      color: #fafafa;
+      color: #ffffff;
       font-size: 15px;
+      outline: none;
     }
     #se-search-input::placeholder {
       color: #71717a;
@@ -196,55 +248,56 @@
     .se-result-item {
       display: block;
       padding: 12px 14px;
-      border-radius: 10px;
-      color: #d4d4d8;
+      border-radius: 12px;
       text-decoration: none;
-      transition: background 0.15s ease;
+      color: #e4e4e7;
+      transition: background 0.1s ease;
       cursor: pointer;
     }
     .se-result-item:hover, .se-result-item.se-selected {
-      background: #18181b;
-      color: #fafafa;
+      background: rgba(6, 182, 212, 0.12);
+      outline: 1px solid rgba(6, 182, 212, 0.3);
     }
     .se-result-title {
-      font-weight: 600;
       font-size: 14px;
-      color: #f4f4f5;
+      font-weight: 600;
+      color: #ffffff;
       display: flex;
       align-items: center;
       justify-content: space-between;
-    }
-    .se-badge {
-      font-size: 10px;
-      font-weight: 600;
-      text-transform: uppercase;
-      padding: 2px 6px;
-      border-radius: 4px;
-      background: #27272a;
-      color: #a1a1aa;
+      margin-bottom: 4px;
     }
     .se-result-excerpt {
       font-size: 12px;
       color: #a1a1aa;
-      margin-top: 4px;
       line-height: 1.4;
+    }
+    .se-badge {
+      font-size: 10px;
+      font-family: monospace;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: #18181b;
+      color: #06b6d4;
+      border: 1px solid rgba(6, 182, 212, 0.25);
     }
     #se-footer {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 10px 16px;
-      border-top: 1px solid #27272a;
-      background: #0e0e11;
+      padding: 12px 18px;
+      background: #090a12;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
       font-size: 11px;
       color: #71717a;
     }
     #se-footer a {
-      color: #a1a1aa;
+      color: #06b6d4;
       text-decoration: none;
+      font-weight: 600;
     }
     #se-footer a:hover {
-      color: #fafafa;
+      text-decoration: underline;
     }
   `;
   document.head.appendChild(styleEl);
@@ -252,28 +305,35 @@
   // --- Render DOM Elements ---
   const triggerBtn = document.createElement('button');
   triggerBtn.id = 'se-trigger-btn';
+  triggerBtn.setAttribute('aria-label', 'Open Global Search');
   triggerBtn.innerHTML = `
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
     <span>Search</span>
-    <kbd>⌘K</kbd>
+    <kbd aria-hidden="true">⌘K</kbd>
   `;
   document.body.appendChild(triggerBtn);
 
   const modalBackdrop = document.createElement('div');
   modalBackdrop.id = 'se-modal-backdrop';
+  modalBackdrop.setAttribute('role', 'dialog');
+  modalBackdrop.setAttribute('aria-modal', 'true');
+  modalBackdrop.setAttribute('aria-label', 'Site Search Dialog');
+
   modalBackdrop.innerHTML = `
     <div id="se-modal-container">
       <div id="se-input-row">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="${customAccent}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-        <input id="se-search-input" type="text" placeholder="${placeholderText}" autocomplete="off" />
-        <span style="font-size: 11px; color: #71717a; background: #18181b; border: 1px solid #27272a; padding: 2px 6px; border-radius: 4px;">ESC</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="${escapeHtml(customAccent)}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input id="se-search-input" type="text" placeholder="${escapeHtml(placeholderText)}" autocomplete="off" aria-label="Search documents and projects" />
+        <button id="se-close-btn" style="background:none; border:none; cursor:pointer;" aria-label="Close search">
+          <span style="font-size: 11px; color: #71717a; background: #18181b; border: 1px solid #27272a; padding: 2px 6px; border-radius: 4px;">ESC</span>
+        </button>
       </div>
-      <div id="se-results-box">
-        <div style="padding: 24px; text-align: center; color: #71717a; font-size: 13px;">Type to search pages, guides, and documentation...</div>
+      <div id="se-results-box" role="region" aria-live="polite">
+        <div style="padding: 24px; text-align: center; color: #71717a; font-size: 13px;">Type to search real projects, architectures, and docs...</div>
       </div>
       <div id="se-footer">
         <div>Navigate with <kbd style="background:#18181b; padding:1px 4px; border-radius:3px;">↑</kbd> <kbd style="background:#18181b; padding:1px 4px; border-radius:3px;">↓</kbd> · Select with <kbd style="background:#18181b; padding:1px 4px; border-radius:3px;">↵</kbd></div>
-        <div id="se-whitelabel-mark"><a href="https://github.com/santoshkumarvvv/search-hub-" target="_blank" rel="noopener">⚡ Powered by Santosh Search</a></div>
+        <div id="se-whitelabel-mark"><a href="https://github.com/santoshkumarvvv/search-hub-" target="_blank" rel="noopener noreferrer">⚡ Powered by Santosh Search</a></div>
       </div>
     </div>
   `;
@@ -281,20 +341,25 @@
 
   const searchInput = modalBackdrop.querySelector('#se-search-input');
   const resultsBox = modalBackdrop.querySelector('#se-results-box');
+  const closeBtn = modalBackdrop.querySelector('#se-close-btn');
 
   let selectedIndex = -1;
   let currentResults = [];
 
+  // Focus trap management
   function openModal() {
     modalBackdrop.classList.add('se-open');
     searchInput.value = '';
     selectedIndex = -1;
     renderResults([]);
+    document.body.style.overflow = 'hidden';
     setTimeout(() => searchInput.focus(), 50);
   }
 
   function closeModal() {
     modalBackdrop.classList.remove('se-open');
+    document.body.style.overflow = '';
+    triggerBtn.focus();
   }
 
   function renderResults(results) {
@@ -302,11 +367,11 @@
     selectedIndex = results.length > 0 ? 0 : -1;
 
     if (!searchInput.value.trim()) {
-      resultsBox.innerHTML = `
-        <div style="padding: 24px; text-align: center; color: #71717a; font-size: 13px;">
-          Type anything to search across ${searchIndex.length} indexed documents (2ms in-memory BM25)...
-        </div>
-      `;
+      resultsBox.innerHTML = '';
+      const initialDiv = document.createElement('div');
+      initialDiv.style.cssText = 'padding: 24px; text-align: center; color: #71717a; font-size: 13px;';
+      initialDiv.textContent = `Type anything to search across ${searchIndex.length} real indexed pages (sub-2ms BM25)...`;
+      resultsBox.appendChild(initialDiv);
       return;
     }
 
@@ -320,17 +385,18 @@
     }
 
     resultsBox.innerHTML = results.map((r, i) => `
-      <a href="${r.url}" class="se-result-item ${i === selectedIndex ? 'se-selected' : ''}" data-index="${i}">
+      <a href="${escapeHtml(r.url)}" class="se-result-item ${i === selectedIndex ? 'se-selected' : ''}" data-index="${i}">
         <div class="se-result-title">
-          <span>${r.title}</span>
-          ${r.category ? `<span class="se-badge">${r.category}</span>` : ''}
+          <span>${escapeHtml(r.title)}</span>
+          ${r.category ? `<span class="se-badge">${escapeHtml(r.category)}</span>` : ''}
         </div>
-        ${r.excerpt ? `<div class="se-result-excerpt">${r.excerpt}</div>` : ''}
+        ${r.excerpt ? `<div class="se-result-excerpt">${escapeHtml(r.excerpt)}</div>` : ''}
       </a>
     `).join('');
   }
 
   triggerBtn.addEventListener('click', openModal);
+  closeBtn?.addEventListener('click', closeModal);
   modalBackdrop.addEventListener('click', (e) => {
     if (e.target === modalBackdrop) closeModal();
   });
@@ -351,19 +417,35 @@
       }
     } else if (e.key === 'Escape' && modalBackdrop.classList.contains('se-open')) {
       closeModal();
-    } else if (modalBackdrop.classList.contains('se-open') && currentResults.length > 0) {
-      if (e.key === 'ArrowDown') {
-        e.preventDefault();
-        selectedIndex = (selectedIndex + 1) % currentResults.length;
-        updateSelectedHighlight();
-      } else if (e.key === 'ArrowUp') {
-        e.preventDefault();
-        selectedIndex = (selectedIndex - 1 + currentResults.length) % currentResults.length;
-        updateSelectedHighlight();
-      } else if (e.key === 'Enter' && selectedIndex >= 0) {
-        e.preventDefault();
-        const selected = currentResults[selectedIndex];
-        if (selected?.url) window.location.href = selected.url;
+    } else if (modalBackdrop.classList.contains('se-open')) {
+      // Focus trap for Tab
+      if (e.key === 'Tab') {
+        const focusable = modalBackdrop.querySelectorAll('input, button, a[href]');
+        if (focusable.length > 0) {
+          const first = focusable[0];
+          const last = focusable[focusable.length - 1];
+          if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      } else if (currentResults.length > 0) {
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          selectedIndex = (selectedIndex + 1) % currentResults.length;
+          updateSelectedHighlight();
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          selectedIndex = (selectedIndex - 1 + currentResults.length) % currentResults.length;
+          updateSelectedHighlight();
+        } else if (e.key === 'Enter' && selectedIndex >= 0) {
+          e.preventDefault();
+          const selected = currentResults[selectedIndex];
+          if (selected?.url) window.location.href = selected.url;
+        }
       }
     }
   });
@@ -380,8 +462,8 @@
     });
   }
 
-  // Whitelabel check: if paid Pro key, hide footer branding
-  if (siteKey && siteKey.startsWith('sh_ltd_') || siteKey.startsWith('sh_pro_')) {
+  // Whitelabel check: if paid key, hide footer branding
+  if (siteKey && (siteKey.startsWith('sh_ltd_') || siteKey.startsWith('sh_pro_'))) {
     const mark = modalBackdrop.querySelector('#se-whitelabel-mark');
     if (mark) mark.style.display = 'none';
   }

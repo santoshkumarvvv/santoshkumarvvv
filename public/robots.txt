@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://santoshkumarvvv.github.io/sitemap.xml

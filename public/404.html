@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404: Node Not Found — Santosh Kumar</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #05060b;
+      color: #f4f4f5;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(6, 182, 212, 0.1);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      color: #06b6d4;
+      font-family: monospace;
+      font-size: 12px;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      margin-bottom: 20px;
+    }
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #06b6d4;
+    }
+    h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      margin-bottom: 12px;
+      background: linear-gradient(to right, #ffffff, #a1a1aa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    p {
+      color: #a1a1aa;
+      font-size: 1rem;
+      max-width: 480px;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #06b6d4;
+      color: #05060b;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 10px 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn:hover {
+      background: #22d3ee;
+      transform: translateY(-1px);
+    }
+  </style>
+</head>
+<body>
+  <div class="badge"><span class="dot"></span> 404 ROUTE EXCEPTION</div>
+  <h1>Requested Node Offline</h1>
+  <p>The path you navigated to does not exist on this cluster. Return to the primary systems engineering hub to explore live search architectures and selected works.</p>
+  <a href="/" class="btn">Return to Systems Command Hub &rarr;</a>
+  <script>
+    // SPA fallback handling
+    const path = window.location.pathname;
+    if (path.startsWith('/santoshkumarvvv') && path !== '/santoshkumarvvv/') {
+      // In case of sub-path navigation on GitHub Pages
+      window.location.replace('/santoshkumarvvv/');
+    }
+  </script>
+</body>
+</html>

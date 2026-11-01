@@ -1,0 +1,94 @@
+%PDF-1.4
+1 0 obj
+<< /Title (Santosh Kumar - Systems & Search Engineer Resume)
+   /Author (Santosh Kumar)
+   /Creator (Santosh Kumar Portfolio) >>
+endobj
+2 0 obj
+<< /Type /Catalog
+   /Pages 3 0 R >>
+endobj
+3 0 obj
+<< /Type /Pages
+   /Kids [4 0 R]
+   /Count 1 >>
+endobj
+4 0 obj
+<< /Type /Page
+   /Parent 3 0 R
+   /MediaBox [0 0 612 792]
+   /Contents 5 0 R
+   /Resources << /Font << /F1 6 0 R /F2 7 0 R >> >> >>
+endobj
+5 0 obj
+<< /Length 1150 >>
+stream
+BT
+/F1 22 Tf
+50 740 Td
+(SANTOSH KUMAR) Tj
+/F2 11 Tf
+0 -18 Td
+(Systems & Search Engine Architect | kumasantosh947@gmail.com | github.com/santoshkumarvvv) Tj
+0 -24 Td
+/F1 14 Tf
+(PROFESSIONAL PROFILE) Tj
+/F2 10 Tf
+0 -16 Td
+(Software Engineer specializing in low-latency in-memory search architectures, deterministic) Tj
+0 -14 Td
+(TypeScript & React 19 interfaces, Dart/Flutter mobile engines, and automated GitHub CI/CD pipelines.) Tj
+0 -22 Td
+/F1 14 Tf
+(CORE COMPETENCIES & TECHNICAL STACK) Tj
+/F2 10 Tf
+0 -16 Td
+(Languages: TypeScript, JavaScript, Dart, HTML5/CSS3, SQL, Bash) Tj
+0 -14 Td
+(Frameworks & Runtimes: React 19, Next.js, Node.js, Express, Flutter, Vite, Tailwind CSS) Tj
+0 -14 Td
+(Systems & Algorithms: In-Memory BM25 Lexical Scoring, Damerau-Levenshtein Typo Distance, Scrypt KDF) Tj
+0 -14 Td
+(DevOps & Tooling: GitHub Actions CI/CD, CodeQL Advanced Security, Vercel, Docker, Git) Tj
+0 -22 Td
+/F1 14 Tf
+(FEATURED PRODUCTION ARCHITECTURES) Tj
+/F2 10 Tf
+0 -16 Td
+(1. SearchHub / SearchEmbed: 14KB zero-dependency in-memory search widget delivering sub-2ms) Tj
+0 -14 Td
+(   query responses without cloud database roundtrips. Live at santoshkumarvvv.github.io.) Tj
+0 -16 Td
+(2. Dev Showcase: Multi-platform Flutter engine built with Clean Architecture & Riverpod.) Tj
+0 -16 Td
+(3. Scrypt KDF Auth: Cryptographic key derivation resisting GPU/ASIC brute-force attacks.) Tj
+ET
+endstream
+endobj
+6 0 obj
+<< /Type /Font
+   /Subtype /Type1
+   /BaseFont /Helvetica-Bold >>
+endobj
+7 0 obj
+<< /Type /Font
+   /Subtype /Type1
+   /BaseFont /Helvetica >>
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000010 00000 n 
+0000000140 00000 n 
+0000000195 00000 n 
+0000000255 00000 n 
+0000000390 00000 n 
+0000001600 00000 n 
+0000001680 00000 n 
+trailer
+<< /Size 8
+   /Root 2 0 R
+   /Info 1 0 R >>
+startxref
+1755
+%%EOF

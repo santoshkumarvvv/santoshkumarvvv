@@ -1,0 +1,22 @@
+{
+  "name": "Santosh Kumar — Systems & Search Engineering",
+  "short_name": "Santosh Kumar",
+  "description": "Portfolio, architecture blueprints, and real-time in-memory search systems by Santosh Kumar (@santoshkumarvvv).",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#050505",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
