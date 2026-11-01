@@ -311,11 +311,11 @@
     }
 
     if (results.length === 0) {
-      resultsBox.innerHTML = `
-        <div style="padding: 24px; text-align: center; color: #a1a1aa; font-size: 13px;">
-          No matching documents found for "<strong>${searchInput.value.replace(/</g, '&lt;')}</strong>".
-        </div>
-      `;
+      resultsBox.innerHTML = '';
+      const emptyDiv = document.createElement('div');
+      emptyDiv.style.cssText = 'padding: 24px; text-align: center; color: #a1a1aa; font-size: 13px;';
+      emptyDiv.textContent = `No matching documents found for "${searchInput.value}".`;
+      resultsBox.appendChild(emptyDiv);
       return;
     }
 
